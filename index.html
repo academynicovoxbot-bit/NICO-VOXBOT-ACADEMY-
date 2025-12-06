@@ -1,228 +1,252 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Academia Nico-VoxBot</title>
+  <meta charset="UTF-8">
+  <title>NICO-VOXBOT ACADEMY</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #eef3ff;
-  text-align: center;
-}
-
-header {
-  background: linear-gradient(to right, #061a3a, #0d47a1);
-  color: white;
-  padding: 25px;
-}
-
-.logo {
-  width: 120px;
-  margin-bottom: 10px;
-}
-
-nav {
-  background: white;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-nav a {
-  text-decoration: none;
-  background: #0d47a1;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 8px;
-  font-weight: bold;
-}
-
-section {
-  padding: 40px 20px;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.15);
-}
-
-input, select, button {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-button {
-  background: #0d47a1;
-  color: white;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-}
-
-footer {
-  background: black;
-  color: white;
-  padding: 15px;
-  margin-top: 40px;
-}
-
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  padding: 14px 20px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-}
-</style>
+  <style>
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:#eef6ff;
+      color:#222;
+    }
+    header{
+      background:#0a3d62;
+      color:white;
+      padding:20px;
+      text-align:center;
+    }
+    nav{
+      background:#1e5aa7;
+      padding:10px;
+      text-align:center;
+    }
+    nav a{
+      color:white;
+      margin:0 10px;
+      text-decoration:none;
+      font-weight:bold;
+    }
+    nav a:hover{
+      text-decoration:underline;
+    }
+    section{
+      padding:30px;
+      max-width:900px;
+      margin:auto;
+    }
+    h2{
+      text-align:center;
+      color:#0a3d62;
+    }
+    .card{
+      background:white;
+      padding:20px;
+      margin:20px 0;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,.1);
+    }
+    button{
+      background:#27ae60;
+      color:white;
+      border:none;
+      padding:12px 20px;
+      border-radius:8px;
+      font-size:16px;
+      cursor:pointer;
+    }
+    button:hover{
+      background:#219150;
+    }
+    .planes{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+    .idiomas{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+      gap:10px;
+      text-align:center;
+    }
+    .idiomas div{
+      background:#dff0ff;
+      padding:10px;
+      border-radius:8px;
+    }
+    form input{
+      width:100%;
+      padding:10px;
+      margin:8px 0;
+    }
+    footer{
+      background:#0a3d62;
+      color:white;
+      text-align:center;
+      padding:15px;
+      margin-top:30px;
+    }
+    .whatsapp-float{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:#25d366;
+      color:white;
+      padding:12px 16px;
+      border-radius:50%;
+      text-decoration:none;
+      font-size:20px;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-  <img src="logo.png" class="logo">
-  <h1>Academia Nico-VoxBot</h1>
-  <p>La Forma Más Inteligente de Aprender Idiomas</p>
+  <h1>NICO-VOXBOT ACADEMY</h1>
+  <p>La Forma Más Inteligente de Aprende Cuálquier Idioma</p>
 </header>
 
 <nav>
   <a href="#planes">Planes</a>
   <a href="#idiomas">Idiomas</a>
-  <a href="#clases">Clases</a>
+  <a href="#mision">Misión</a>
+  <a href="#clases-ia">Clases</a>
   <a href="#registro">Registro</a>
-  <a href="#pagos">Pagos</a>
-  <a href="https://wa.me/18297425652">Soporte</a>
 </nav>
 
-<!-- PLANES -->
 <section id="planes">
-<h2>Planes de Suscripción</h2>
-<div class="cards">
-  <div class="card">
-    <h3>Mensual</h3>
-    <h2>US$ 3.99</h2>
-    <button onclick="alert('Plan Mensual seleccionado')">Seleccionar</button>
-  </div>
+  <h2>Planes de Pago</h2>
+  <div class="planes">
 
-  <div class="card">
-    <h3>Anual</h3>
-    <h2>US$ 39.99</h2>
-    <button onclick="alert('Plan Anual seleccionado')">Seleccionar</button>
-  </div>
+    <div class="card">
+      <h3>Plan Mensual</h3>
+      <p>US$3.99 al mes</p>
+      <button>Seleccionar</button>
+    </div>
 
-  <div class="card">
-    <h3>Familiar</h3>
-    <h2>US$ 5.99</h2>
-    <button onclick="alert('Plan Familiar seleccionado')">Seleccionar</button>
+    <div class="card">
+      <h3>Plan Anual</h3>
+      <p>US$39.99 al año</p>
+      <button>Seleccionar</button>
+    </div>
+
+    <div class="card">
+      <h3>Plan Familiar</h3>
+      <p>US$5.99 al mes (2 o más personas)</p>
+      <button>Seleccionar</button>
+    </div>
+
   </div>
-</div>
 </section>
 
-<!-- 20 IDIOMAS -->
 <section id="idiomas">
-<h2>Idiomas Disponibles (20)</h2>
-<div class="cards">
-  <div class="card">Inglés</div>
-  <div class="card">Español</div>
-  <div class="card">Francés</div>
-  <div class="card">Italiano</div>
-  <div class="card">Portugués</div>
-  <div class="card">Alemán</div>
-  <div class="card">Chino Mandarín</div>
-  <div class="card">Japonés</div>
-  <div class="card">Coreano</div>
-  <div class="card">Ruso</div>
-  <div class="card">Árabe</div>
-  <div class="card">Hindi</div>
-  <div class="card">Turco</div>
-  <div class="card">Holandés</div>
-  <div class="card">Sueco</div>
-  <div class="card">Griego</div>
-  <div class="card">Hebreo</div>
-  <div class="card">Polaco</div>
-  <div class="card">Tailandés</div>
-  <div class="card">Vietnamita</div>
-</div>
+  <h2>Idiomas Disponibles (20)</h2>
+  <div class="idiomas">
+    <div>Inglés</div><div>Español</div><div>Francés</div><div>Portugués</div>
+    <div>Italiano</div><div>Alemán</div><div>Chino</div><div>Japonés</div>
+    <div>Coreano</div><div>Árabe</div><div>Ruso</div><div>Sueco</div>
+    <div>Holandés</div><div>Griego</div><div>Turco</div><div>Hebreo</div>
+    <div>Hindi</div><div>Polaco</div><div>Tailandés</div><div>Vietnamita</div>
+  </div>
 </section>
 
-<!-- CLASES -->
-<section id="clases">
-<h2>Clases, Tareas y Actividades</h2>
-<div class="cards">
-  <div class="card">Clases Inteligentes con IA</div>
-  <div class="card">Tareas Automáticas</div>
-  <div class="card">Actividades Prácticas</div>
-  <div class="card">Aventuras de Idiomas para Niños</div>
-  <div class="card">ChatGPT + IA Educativa Oficial</div>
-</div>
+<section id="mision">
+  <h2>Misión de la Plataforma</h2>
+  <div class="card">
+    <p>
+      Somos una plataforma de aprendizaje de idiomas a nivel mundial que utiliza
+      inteligencia artificial educativa de última generación, ofreciendo clases
+      accesibles e interactivas para niños, jóvenes y adultos, brindando soporte constante
+      y herramientas modernas que impulsen el crecimiento académico y profesional de cada estudiante.
+    </p>
+  </div>
 </section>
 
-<!-- REGISTRO -->
+<section id="clases-ia">
+  <h2>Clases con Inteligencia Artificial</h2>
+  <div class="card">
+    <p>Clases 24/7 con lecciones, ejercicios, juegos educativos y tareas.</p>
+
+    <h3>Modo Aventura para Niños</h3>
+    <p>Misiones, puntos, retos y videojuegos educativos.</p>
+
+    <a href="https://chat.openai.com/" target="_blank">
+      <button>🎓 Entrar a Clase con la IA</button>
+    </a>
+
+    <p style="margin-top:15px;">Copia este mensaje dentro de la clase:</p>
+
+    <textarea rows="10" style="width:100%;">
+Eres el profesor oficial de NICO-VOXBOT ACADEMY.
+Vas a impartir clases de idiomas de forma clara, divertida y profesional.
+
+Estructura cada clase así:
+1. Lección del día
+2. Ejercicios prácticos
+3. Juego educativo
+4. Tarea para la casa
+
+Comienza preguntando:
+Edad, idioma y nivel.
+Para niños usa modo aventura.
+    </textarea>
+
+  </div>
+</section>
+
 <section id="registro">
-<h2>Registro de Estudiantes</h2>
-<div class="card">
-<form onsubmit="enviarRegistro(event)">
-  <input type="text" id="nombre" placeholder="Nombre completo" required>
-  <input type="number" id="edad" placeholder="Edad" required>
-  <select id="pais" required>
-    <option value="">Selecciona tu país</option>
-    <option>República Dominicana</option>
-    <option>México</option>
-    <option>Colombia</option>
-    <option>Estados Unidos</option>
-    <option>España</option>
-  </select>
-  <input type="text" id="contacto" placeholder="WhatsApp o correo" required>
-  <button type="submit">Registrarme</button>
-</form>
-</div>
+  <h2>Registro de Estudiantes</h2>
+  <div class="card">
+    <form>
+      <input type="text" id="nombre" placeholder="Nombre completo" required>
+      <input type="number" id="edad" placeholder="Edad" required>
+      <input type="text" id="pais" placeholder="País" required>
+      <input type="text" id="contacto" placeholder="WhatsApp o correo" required>
+      <button type="submit">Registrarse</button>
+    </form>
+  </div>
 </section>
 
-<!-- PAGOS -->
-<section id="pagos">
-<h2>Pagos</h2>
-<div class="card">
-<p>Pronto activaremos pagos por PayPal automáticos.</p>
-</div>
-</section>
+<a href="https://wa.me/18297425652" class="whatsapp-float">💬</a>
 
 <footer>
-© 2025 Academia Nico-VoxBot - Creado por Nico
+  © 2025 NICO-VOXBOT ACADEMY – Todos los derechos reservados
 </footer>
 
-<a class="whatsapp" href="https://wa.me/18297425652">Soporte</a>
-
 <script>
-function enviarRegistro(e){
-  e.preventDefault();
-  let nombre = document.getElementById("nombre").value;
-  let edad = document.getElementById("edad").value;
-  let pais = document.getElementById("pais").value;
-  let contacto = document.getElementById("contacto").value;
+const planButtons=document.querySelectorAll('#planes button');
+planButtons.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const plan=btn.parentElement.querySelector('h3').innerText;
+    sessionStorage.setItem('selectedPlan',plan);
+    document.getElementById('registro').scrollIntoView({behavior:'smooth'});
+    alert(plan+" seleccionado. Completa tu registro.");
+  });
+});
 
-  let mensaje = `Hola, nuevo registro:%0A${nombre}%0A${edad}%0A${pais}%0A${contacto}`;
-  window.open("https://wa.me/18297425652?text="+mensaje);
-}
+const form=document.querySelector('#registro form');
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const nombre=document.getElementById('nombre').value;
+  const edad=document.getElementById('edad').value;
+  const pais=document.getElementById('pais').value;
+  const contacto=document.getElementById('contacto').value;
+  const plan=sessionStorage.getItem('selectedPlan')||'No seleccionado';
+
+  const texto=encodeURIComponent(
+    `Nuevo Registro:%0A
+Nombre: ${nombre}%0A
+Edad: ${edad}%0A
+País: ${pais}%0A
+Contacto: ${contacto}%0A
+Plan: ${plan}`
+  );
+
+  window.open('https://wa.me/18297425652?text='+texto,'_blank');
+});
 </script>
 
 </body>
