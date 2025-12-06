@@ -1,77 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Academia Nico-VoxBot</title>
+<meta charset="UTF-8">
+<title>Academia Nico-VoxBot</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f2f6ff;
-      text-align: center;
-    }
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f2f6ff;
+  text-align: center;
+}
 
-    header {
-      background: linear-gradient(to right, #0a1f44, #0d47a1);
-      color: white;
-      padding: 30px 15px;
-    }
+header {
+  background: linear-gradient(to right, #0a1f44, #0d47a1);
+  color: white;
+  padding: 25px 10px;
+}
 
-    section {
-      padding: 35px 20px;
-    }
+nav {
+  background: #ffffff;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
-    .card {
-      background: white;
-      padding: 20px;
-      max-width: 420px;
-      margin: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.15);
-    }
+nav a {
+  text-decoration: none;
+  padding: 10px 16px;
+  background: #0d47a1;
+  color: white;
+  border-radius: 6px;
+  font-weight: bold;
+}
 
-    input, select, button {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
+section {
+  padding: 35px 20px;
+}
 
-    button {
-      background: #0d47a1;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
 
-    button:hover {
-      background: #09357a;
-    }
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+}
 
-    footer {
-      background: #111;
-      color: white;
-      padding: 15px;
-      margin-top: 40px;
-    }
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
 
-    .WhatsApp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      padding: 14px 18px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      z-index: 1000;
-    }
-  </style>
+button {
+  background: #0d47a1;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+footer {
+  background: #111;
+  color: white;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+.WhatsApp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+}
+</style>
 </head>
 
 <body>
@@ -81,15 +100,98 @@
   <p><b>La Forma Más Inteligente de Aprender Cualquier Idioma</b></p>
 </header>
 
-<section>
-  <h2>Precio de lanzamiento</h2>
-  <div class="card">
-    <p>Acceso TOTAL por solo:</p>
-    <h2>US$ 3.99 / mes</h2>
-    <p>(Muy pronto pago automático con PayPal)</p>
+<nav>
+  <a href="#planes">💳 Planes</a>
+  <a href="#cursos">📚 Cursos</a>
+  <a href="#clases">🎓 Clases</a>
+  <a href="#registro">📝 Registro</a>
+  <a href="#pagos">💰 Pagos</a>
+  <a href="https://wa.me/18297425652">💬 Soporte</a>
+</nav>
+
+<!-- PLANES -->
+<section id="planes">
+  <h2>Planes de Suscripción</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Plan Mensual</h3>
+      <h2>US$ 3.99 / mes</h2>
+      <p>Acceso total a todos los idiomas</p>
+      <button>Seleccionar</button>
+    </div>
+
+    <div class="card">
+      <h3>Plan Anual</h3>
+      <h2>US$ 39.99 / año</h2>
+      <p>Ahorra más de 2 meses</p>
+      <button>Seleccionar</button>
+    </div>
+
+    <div class="card">
+      <h3>Plan Familiar</h3>
+      <h2>US$ 5.99 / mes</h2>
+      <p>Hasta 5 personas</p>
+      <button>Seleccionar</button>
+    </div>
   </div>
 </section>
 
+<!-- CURSOS -->
+<section id="cursos">
+  <h2>Idiomas Disponibles</h2>
+  <div class="cards">
+    <div class="card">✅ Inglés</div>
+    <div class="card">✅ Francés</div>
+    <div class="card">✅ Italiano</div>
+    <div class="card">✅ Portugués</div>
+    <div class="card">✅ Alemán</div>
+  </div>
+</section>
+
+<!-- CLASES, TAREAS, JUEGOS -->
+<section id="clases">
+  <h2>Clases, Tareas y Actividades</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>📖 Clases Inteligentes</h3>
+      <p>Clases interactivas con explicación paso a paso.</p>
+      <p>Pronunciación, conversación, lectura y escritura.</p>
+    </div>
+
+    <div class="card">
+      <h3>📝 Tareas Automáticas</h3>
+      <p>Ejercicios diarios.</p>
+      <p>Corrección automática con la IA.</p>
+      <p>Reportes de avance.</p>
+    </div>
+
+    <div class="card">
+      <h3>🎯 Actividades Prácticas</h3>
+      <p>Retos semanales.</p>
+      <p>Conversaciones simuladas.</p>
+      <p>Pruebas rápidas por nivel.</p>
+    </div>
+
+    <div class="card">
+      <h3>🧒 Aventuras de Idiomas (Niños)</h3>
+      <p>Juegos educativos.</p>
+      <p>Historias interactivas.</p>
+      <p>Misiones, personajes y premios.</p>
+    </div>
+
+    <div class="card">
+      <h3>🤖 Inteligencia Artificial Oficial</h3>
+      <p>Usamos tecnología tipo <b>ChatGPT + IA educativa entrenada para idiomas</b>.</p>
+      <p>Disponible 24/7.</p>
+      <p>Personaliza el aprendizaje según el estudiante.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- REGISTRO -->
 <section id="registro">
   <h2>Registro de Estudiantes</h2>
   <div class="card">
@@ -108,28 +210,27 @@
       </select>
 
       <input type="text" placeholder="WhatsApp o correo" required>
-
-      <button type="submit">Registrarme</button>
+      <button>Registrarme</button>
     </form>
 
-    <p style="margin-top:15px;"><b>Soporte con IA y tutores reales 24/7</b></p>
+    <p><b>Soporte con IA y tutores reales 24/7</b></p>
   </div>
 </section>
 
-<section>
-  <h2>Pagos (Próximamente)</h2>
+<!-- PAGOS -->
+<section id="pagos">
+  <h2>Pagos</h2>
   <div class="card">
-    <p>Cuando finalices tu cuenta de PayPal, aquí irá el botón de pago automático.</p>
+    <p>Cuando termines de configurar PayPal aquí aparecerán los botones de pago automático.</p>
+    <button>Próximamente</button>
   </div>
 </section>
 
 <footer>
-  © 2025 Academia Nico-VoxBot – Creado por Nico
+© 2025 Academia Nico-VoxBot – Creado por Nico
 </footer>
 
-<a href="https://wa.me/18297425652" class="WhatsApp-float">
-💬 Soporte
-</a>
+<a href="https://wa.me/18297425652" class="WhatsApp-float">💬 Soporte</a>
 
 </body>
 </html>
