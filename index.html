@@ -3,138 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <title>Academia Nico-VoxBot</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      color: #333;
-    }
-    header {
-      background: linear-gradient(135deg, #0a3cff, #00c6ff);
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    header h1 {
       margin: 0;
-      font-size: 2.2rem;
-    }
-    header p {
-      margin-top: 10px;
-      font-size: 1.1rem;
-    }
-    .btn {
-      margin-top: 20px;
-      display: inline-block;
-      background: white;
-      color: #0a3cff;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    h2 {
+      background: #f2f6ff;
       text-align: center;
-      color: #0a3cff;
     }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
+
+    header {
+      background: linear-gradient(to right, #0a1f44, #0d47a1);
+      color: white;
+      padding: 30px 15px;
     }
+
+    section {
+      padding: 35px 20px;
+    }
+
     .card {
       background: white;
       padding: 20px;
+      max-width: 420px;
+      margin: auto;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      text-align: center;
+      box-shadow: 0 0 12px rgba(0,0,0,0.15);
     }
-    .card h3 {
-      margin-top: 10px;
-      color: #0a3cff;
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
     }
+
+    button {
+      background: #0d47a1;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #09357a;
+    }
+
     footer {
       background: #111;
       color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 50px;
-      font-size: 0.9rem;
+      padding: 15px;
+      margin-top: 40px;
     }
-    .precio {
-      font-size: 2rem;
+
+    .WhatsApp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 50px;
+      text-decoration: none;
       font-weight: bold;
-      color: #0a3cff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 1000;
     }
   </style>
 </head>
+
 <body>
 
 <header>
   <h1>Academia Nico-VoxBot</h1>
-  <p>Plataforma académica de cursos de idiomas modernos impulsados por IA</p>
-  <a href="#registro" class="btn">Comenzar ahora</a>
+  <p><b>La Forma Más Inteligente de Aprender Cualquier Idioma</b></p>
 </header>
 
 <section>
-  <h2>Idiomas Disponibles</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Inglés</h3>
-      <p>Desde cero hasta avanzado con IA.</p>
-    </div>
-    <div class="card">
-      <h3>Francés</h3>
-      <p>Pronunciación y conversación real.</p>
-    </div>
-    <div class="card">
-      <h3>Portugués</h3>
-      <p>Ideal para negocios y viajes.</p>
-    </div>
-    <div class="card">
-      <h3>Chinese AI</h3>
-      <p>Aprende con ejercicios inteligentes.</p>
-    </div>
+  <h2>Precio de lanzamiento</h2>
+  <div class="card">
+    <p>Acceso TOTAL por solo:</p>
+    <h2>US$ 3.99 / mes</h2>
+    <p>(Muy pronto pago automático con PayPal)</p>
   </div>
-</section>
-
-<section>
-  <h2>¿Por qué elegirnos?</h2>
-  <div class="cards">
-    <div class="card">Clases con Inteligencia Artificial</div>
-    <div class="card">Disponible 24/7</div>
-    <div class="card">Desde tu celular</div>
-    <div class="card">Certificados digitales</div>
-  </div>
-</section>
-
-<section>
-  <h2>Precio lanzamiento</h2>
-  <p style="text-align:center">Acceso TOTAL por solo:</p>
-  <p class="precio" style="text-align:center">US$3.99 / mes</p>
 </section>
 
 <section id="registro">
-  <h2>Registro (Próximamente)</h2>
+  <h2>Registro de Estudiantes</h2>
   <div class="card">
-    <p>Muy pronto podrás registrarte directamente desde aquí.</p>
-    <p>Soporte con IA y tutores reales.</p>
+    <form>
+      <input type="text" placeholder="Nombre completo" required>
+      <input type="number" placeholder="Edad" required>
+
+      <select required>
+        <option value="">Selecciona tu país</option>
+        <option>República Dominicana</option>
+        <option>México</option>
+        <option>Colombia</option>
+        <option>Estados Unidos</option>
+        <option>España</option>
+        <option>Otro</option>
+      </select>
+
+      <input type="text" placeholder="WhatsApp o correo" required>
+
+      <button type="submit">Registrarme</button>
+    </form>
+
+    <p style="margin-top:15px;"><b>Soporte con IA y tutores reales 24/7</b></p>
+  </div>
+</section>
+
+<section>
+  <h2>Pagos (Próximamente)</h2>
+  <div class="card">
+    <p>Cuando finalices tu cuenta de PayPal, aquí irá el botón de pago automático.</p>
   </div>
 </section>
 
 <footer>
   © 2025 Academia Nico-VoxBot – Creado por Nico
-</footer>
-<footer>
-© 2025 Academia Nico-VoxBot – Creado…
 </footer>
 
 <a href="https://wa.me/18297425652" class="WhatsApp-float">
@@ -143,22 +133,3 @@
 
 </body>
 </html>
-</body>
-<
-
-<style>
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 50px;
-  font-size: 16px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-  z-index: 1000;
-}
-</style>
