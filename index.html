@@ -4,18 +4,19 @@
 <meta charset="UTF-8">
 <title>NICO-VOXBOT ACADEMY</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #eaf4ff;
-  text-align: center;
 }
 
 header {
-  background: #0a2a52;
+  background: #0b2d52;
   color: white;
-  padding: 20px;
+  padding: 40px 20px;
+  text-align: center;
 }
 
 section {
@@ -24,31 +25,42 @@ section {
 
 .card {
   background: white;
-  max-width: 420px;
-  margin: auto;
+  border-radius: 12px;
   padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 button {
-  padding: 12px 20px;
-  background: #1e8f4d;
+  width: 100%;
+  padding: 14px;
+  background: #1f9d55;
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 16px;
-  margin: 10px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #15803d;
+}
+
+.opcion {
+  background: #f1f5f9;
+  padding: 12px;
+  margin-top: 8px;
+  border-radius: 8px;
   cursor: pointer;
+  text-align: center;
+  font-weight: bold;
 }
 
-input {
-  padding: 10px;
-  width: 80%;
-  margin: 10px;
+.opcion:hover {
+  background: #dbeafe;
 }
 
-#clase-privada {
+#clase {
   display: none;
 }
 
@@ -56,11 +68,15 @@ input {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #00b894;
-  color: white;
-  padding: 15px;
+  background: #1f9d55;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  font-size: 22px;
+  color: white;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
 </head>
@@ -68,161 +84,125 @@ input {
 <body>
 
 <header>
-  <h1>NICO-VOXBOT ACADEMY</h1>
-  <p>Somos una plataforma de aprendizaje con Inteligencia Artificial</p>
+<h1>NICO-VOXBOT ACADEMY</h1>
+<p>Somos una plataforma de aprendizaje con Inteligencia Artificial</p>
 </header>
 
 <section>
-  <div class="card">
-    <h2>Clases con Inteligencia Artificial</h2>
-    <p>Clases 24/7 con lecciones, ejercicios, juegos educativos y tareas.</p>
 
-    <h3>Modo Aventura para Niños</h3>
-    <p>Misiones, puntos, retos y videojuegos educativos.</p>
+<div class="card">
+<h2>Clases con Inteligencia Artificial</h2>
+<p>Clases 24/7 con lecciones, ejercicios, juegos educativos y tareas.</p>
 
-    <button onclick="entrarClase()">🎓 Entrar a Clase con la IA</button>
-  </div>
+<h3>Modo Aventura para Niños</h3>
+<p>Misiones, puntos, retos y videojuegos educativos.</p>
+
+<button onclick="entrarClase()">🎓 Entrar a Clase con la IA</button>
+</div>
+
+<div class="card">
+<h2>Planes de Pago</h2>
+<p>✅ Mensual: US$3.99</p>
+<p>✅ Anual: US$39.99</p>
+<p>✅ Familiar: US$5.99</p>
+
+<button onclick="alert('Pronto pagos con PayPal')">💳 Pagar con PayPal</button>
+</div>
+
+<div id="clase" class="card">
+<h2>🎓 Bienvenido a tus lecciones de NICO-VOXBOT ACADEMY</h2>
+<h3 id="nivel">Nivel 1 - Básico</h3>
+
+<p><b>Pregunta:</b></p>
+<p id="pregunta"></p>
+
+<div class="opcion" onclick="responder('a')" id="opA"></div>
+<div class="opcion" onclick="responder('b')" id="opB"></div>
+<div class="opcion" onclick="responder('c')" id="opC"></div>
+
+<p id="resultado"></p>
+<p>⭐ Puntos: <span id="puntos">0</span></p>
+
+<button onclick="siguienteNivel()">➡️ Siguiente Nivel</button>
+<button onclick="modoNinos()">🕹️ Modo Niños</button>
+</div>
+
 </section>
 
-<section id="clase-privada">
-  <div class="card">
-    <h2 id="bienvenida"></h2>
-
-    <h3 id="nivel"></h3>
-    <p>Lección: <b id="leccion"></b></p>
-
-    <h3 id="pregunta"></h3>
-    <input id="respuesta" placeholder="Escribe tu respuesta">
-    <br>
-    <button onclick="verificarRespuesta()">✅ Enviar</button>
-
-    <p id="resultado"></p>
-
-    <h3>⭐ Puntos: <span id="puntos">0</span></h3>
-
-    <button onclick="modoNinos()">🕹️ Modo Niños</button>
-    <button onclick="siguienteNivel()">➡️ Siguiente Nivel</button>
-  </div>
-</section>
-
-<button class="soporte" onclick="soporte()">💬</button>
+<div class="soporte" onclick="alert('Soporte activo: Escríbenos por WhatsApp')">
+💬
+</div>
 
 <script>
-let usuario = {
-  nombre: "",
-  edad: "",
-  pais: "",
-  puntos: 0,
-  nivel: 0
-};
+let puntos = 0;
+let nivel = 1;
 
-let niveles = [
+let preguntas = [
   {
-    nombre: "Nivel 1 - Básico",
-    leccion: "Saludos básicos",
-    ejercicios: [
-      { pregunta: "Hola", respuesta: "hello" },
-      { pregunta: "Gracias", respuesta: "thank you" },
-      { pregunta: "Adiós", respuesta: "goodbye" }
-    ]
+    q: "¿Cuál es la forma correcta de escribir HOLA en inglés?",
+    a: "Hello",
+    b: "Helow",
+    c: "Gelou",
+    correcta: "a"
   },
   {
-    nombre: "Nivel 2 - Intermedio",
-    leccion: "Frases comunes",
-    ejercicios: [
-      { pregunta: "¿Cómo estás?", respuesta: "how are you" },
-      { pregunta: "Me llamo Ana", respuesta: "my name is ana" },
-      { pregunta: "Hasta pronto", respuesta: "see you soon" }
-    ]
+    q: "¿Cómo se dice GRACIAS en inglés?",
+    a: "Thanks",
+    b: "Thankus",
+    c: "Gratius",
+    correcta: "a"
+  },
+  {
+    q: "¿Cómo se dice ADIÓS en inglés?",
+    a: "Byee",
+    b: "Goodbye",
+    c: "Adioss",
+    correcta: "b"
   }
 ];
 
-let indice = 0;
+let actual = 0;
 
-function entrarClase() {
-  usuario.nombre = prompt("Ingrese su nombre:");
-  usuario.edad = prompt("Edad:");
-  usuario.pais = prompt("País:");
-
-  document.getElementById("bienvenida").innerText =
-  "🎓 Bienvenido a tus lecciones de NICO-VOXBOT ACADEMY, " + usuario.nombre;
-
-  document.getElementById("clase-privada").style.display = "block";
-  iniciarNivel();
-  guardarProgreso();
+function entrarClase(){
+  document.getElementById("clase").style.display = "block";
+  cargarPregunta();
+  window.scrollTo(0,document.body.scrollHeight);
 }
 
-function iniciarNivel() {
-  let nivel = niveles[usuario.nivel];
-  document.getElementById("nivel").innerText = nivel.nombre;
-  document.getElementById("leccion").innerText = nivel.leccion;
-  indice = 0;
-  mostrarPregunta();
+function cargarPregunta(){
+  let p = preguntas[actual];
+  document.getElementById("pregunta").innerHTML = p.q;
+  document.getElementById("opA").innerHTML = p.a;
+  document.getElementById("opB").innerHTML = p.b;
+  document.getElementById("opC").innerHTML = p.c;
+  document.getElementById("resultado").innerHTML = "";
 }
 
-function mostrarPregunta() {
-  let nivel = niveles[usuario.nivel];
-
-  if (indice < nivel.ejercicios.length) {
-    document.getElementById("pregunta").innerText =
-    nivel.ejercicios[indice].pregunta;
-    document.getElementById("respuesta").value = "";
+function responder(letra){
+  let correcta = preguntas[actual].correcta;
+  if(letra === correcta){
+    document.getElementById("resultado").innerHTML = "✅ Correcto";
+    puntos += 10;
   } else {
-    document.getElementById("pregunta").innerText = "✅ Nivel completado";
+    document.getElementById("resultado").innerHTML = "❌ Incorrecto";
   }
+  document.getElementById("puntos").innerHTML = puntos;
 }
 
-function verificarRespuesta() {
-  let nivel = niveles[usuario.nivel];
-  let user = document.getElementById("respuesta").value.toLowerCase();
-  let correcta = nivel.ejercicios[indice].respuesta;
-
-  if (user === correcta) {
-    usuario.puntos += 10;
-    document.getElementById("resultado").innerText = "✅ Correcto!";
+function siguienteNivel(){
+  if(actual < preguntas.length - 1){
+    actual++;
   } else {
-    document.getElementById("resultado").innerText =
-    "❌ Incorrecto. Era: " + correcta;
+    actual = 0;
+    nivel++;
+    document.getElementById("nivel").innerHTML = "Nivel " + nivel + " - Intermedio";
   }
-
-  document.getElementById("puntos").innerText = usuario.puntos;
-  indice++;
-  guardarProgreso();
-  setTimeout(mostrarPregunta, 1000);
+  cargarPregunta();
 }
 
-function siguienteNivel() {
-  if (usuario.nivel < niveles.length - 1) {
-    usuario.nivel++;
-    iniciarNivel();
-  } else {
-    document.getElementById("pregunta").innerText =
-    "🏆 Curso completado, certificado generado";
-  }
-  guardarProgreso();
+function modoNinos(){
+  alert("🕹️ Modo Niños Activado: Juegos, misiones y premios!");
 }
-
-function modoNinos() {
-  alert("🎮 Misión infantil activada. ¡Completa ejercicios y gana estrellas!");
-}
-
-function soporte() {
-  window.open("https://wa.me/18099999999", "_blank");
-}
-
-function guardarProgreso() {
-  localStorage.setItem("nicoUsuario", JSON.stringify(usuario));
-}
-
-function cargarProgreso() {
-  let data = localStorage.getItem("nicoUsuario");
-  if (data) {
-    usuario = JSON.parse(data);
-    document.getElementById("puntos").innerText = usuario.puntos;
-  }
-}
-
-window.onload = cargarProgreso;
 </script>
 
 </body>
