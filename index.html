@@ -1,252 +1,228 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>NICO-VOXBOT ACADEMY</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>NICO-VOXBOT ACADEMY</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eaf4ff;
+  text-align: center;
+}
 
-  <style>
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:#eef6ff;
-      color:#222;
-    }
-    header{
-      background:#0a3d62;
-      color:white;
-      padding:20px;
-      text-align:center;
-    }
-    nav{
-      background:#1e5aa7;
-      padding:10px;
-      text-align:center;
-    }
-    nav a{
-      color:white;
-      margin:0 10px;
-      text-decoration:none;
-      font-weight:bold;
-    }
-    nav a:hover{
-      text-decoration:underline;
-    }
-    section{
-      padding:30px;
-      max-width:900px;
-      margin:auto;
-    }
-    h2{
-      text-align:center;
-      color:#0a3d62;
-    }
-    .card{
-      background:white;
-      padding:20px;
-      margin:20px 0;
-      border-radius:10px;
-      box-shadow:0 0 10px rgba(0,0,0,.1);
-    }
-    button{
-      background:#27ae60;
-      color:white;
-      border:none;
-      padding:12px 20px;
-      border-radius:8px;
-      font-size:16px;
-      cursor:pointer;
-    }
-    button:hover{
-      background:#219150;
-    }
-    .planes{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-    }
-    .idiomas{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-      gap:10px;
-      text-align:center;
-    }
-    .idiomas div{
-      background:#dff0ff;
-      padding:10px;
-      border-radius:8px;
-    }
-    form input{
-      width:100%;
-      padding:10px;
-      margin:8px 0;
-    }
-    footer{
-      background:#0a3d62;
-      color:white;
-      text-align:center;
-      padding:15px;
-      margin-top:30px;
-    }
-    .whatsapp-float{
-      position:fixed;
-      bottom:20px;
-      right:20px;
-      background:#25d366;
-      color:white;
-      padding:12px 16px;
-      border-radius:50%;
-      text-decoration:none;
-      font-size:20px;
-    }
-  </style>
+header {
+  background: #0a2a52;
+  color: white;
+  padding: 20px;
+}
+
+section {
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  max-width: 420px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+button {
+  padding: 12px 20px;
+  background: #1e8f4d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+input {
+  padding: 10px;
+  width: 80%;
+  margin: 10px;
+}
+
+#clase-privada {
+  display: none;
+}
+
+.soporte {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #00b894;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 22px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
   <h1>NICO-VOXBOT ACADEMY</h1>
-  <p>La Forma Más Inteligente de Aprende Cuálquier Idioma</p>
+  <p>Somos una plataforma de aprendizaje con Inteligencia Artificial</p>
 </header>
 
-<nav>
-  <a href="#planes">Planes</a>
-  <a href="#idiomas">Idiomas</a>
-  <a href="#mision">Misión</a>
-  <a href="#clases-ia">Clases</a>
-  <a href="#registro">Registro</a>
-</nav>
-
-<section id="planes">
-  <h2>Planes de Pago</h2>
-  <div class="planes">
-
-    <div class="card">
-      <h3>Plan Mensual</h3>
-      <p>US$3.99 al mes</p>
-      <button>Seleccionar</button>
-    </div>
-
-    <div class="card">
-      <h3>Plan Anual</h3>
-      <p>US$39.99 al año</p>
-      <button>Seleccionar</button>
-    </div>
-
-    <div class="card">
-      <h3>Plan Familiar</h3>
-      <p>US$5.99 al mes (2 o más personas)</p>
-      <button>Seleccionar</button>
-    </div>
-
-  </div>
-</section>
-
-<section id="idiomas">
-  <h2>Idiomas Disponibles (20)</h2>
-  <div class="idiomas">
-    <div>Inglés</div><div>Español</div><div>Francés</div><div>Portugués</div>
-    <div>Italiano</div><div>Alemán</div><div>Chino</div><div>Japonés</div>
-    <div>Coreano</div><div>Árabe</div><div>Ruso</div><div>Sueco</div>
-    <div>Holandés</div><div>Griego</div><div>Turco</div><div>Hebreo</div>
-    <div>Hindi</div><div>Polaco</div><div>Tailandés</div><div>Vietnamita</div>
-  </div>
-</section>
-
-<section id="mision">
-  <h2>Misión de la Plataforma</h2>
+<section>
   <div class="card">
-    <p>
-      Somos una plataforma de aprendizaje de idiomas a nivel mundial que utiliza
-      inteligencia artificial educativa de última generación, ofreciendo clases
-      accesibles e interactivas para niños, jóvenes y adultos, brindando soporte constante
-      y herramientas modernas que impulsen el crecimiento académico y profesional de cada estudiante.
-    </p>
-  </div>
-</section>
-
-<section id="clases-ia">
-  <h2>Clases con Inteligencia Artificial</h2>
-  <div class="card">
+    <h2>Clases con Inteligencia Artificial</h2>
     <p>Clases 24/7 con lecciones, ejercicios, juegos educativos y tareas.</p>
 
     <h3>Modo Aventura para Niños</h3>
     <p>Misiones, puntos, retos y videojuegos educativos.</p>
 
-    <a href="https://chat.openai.com/" target="_blank">
-      <button>🎓 Entrar a Clase con la IA</button>
-    </a>
-
-    <p style="margin-top:15px;">Copia este mensaje dentro de la clase:</p>
-
-    <textarea rows="10" style="width:100%;">
-Eres el profesor oficial de NICO-VOXBOT ACADEMY.
-Vas a impartir clases de idiomas de forma clara, divertida y profesional.
-
-Estructura cada clase así:
-1. Lección del día
-2. Ejercicios prácticos
-3. Juego educativo
-4. Tarea para la casa
-
-Comienza preguntando:
-Edad, idioma y nivel.
-Para niños usa modo aventura.
-    </textarea>
-
+    <button onclick="entrarClase()">🎓 Entrar a Clase con la IA</button>
   </div>
 </section>
 
-<section id="registro">
-  <h2>Registro de Estudiantes</h2>
+<section id="clase-privada">
   <div class="card">
-    <form>
-      <input type="text" id="nombre" placeholder="Nombre completo" required>
-      <input type="number" id="edad" placeholder="Edad" required>
-      <input type="text" id="pais" placeholder="País" required>
-      <input type="text" id="contacto" placeholder="WhatsApp o correo" required>
-      <button type="submit">Registrarse</button>
-    </form>
+    <h2 id="bienvenida"></h2>
+
+    <h3 id="nivel"></h3>
+    <p>Lección: <b id="leccion"></b></p>
+
+    <h3 id="pregunta"></h3>
+    <input id="respuesta" placeholder="Escribe tu respuesta">
+    <br>
+    <button onclick="verificarRespuesta()">✅ Enviar</button>
+
+    <p id="resultado"></p>
+
+    <h3>⭐ Puntos: <span id="puntos">0</span></h3>
+
+    <button onclick="modoNinos()">🕹️ Modo Niños</button>
+    <button onclick="siguienteNivel()">➡️ Siguiente Nivel</button>
   </div>
 </section>
 
-<a href="https://wa.me/18297425652" class="whatsapp-float">💬</a>
-
-<footer>
-  © 2025 NICO-VOXBOT ACADEMY – Todos los derechos reservados
-</footer>
+<button class="soporte" onclick="soporte()">💬</button>
 
 <script>
-const planButtons=document.querySelectorAll('#planes button');
-planButtons.forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const plan=btn.parentElement.querySelector('h3').innerText;
-    sessionStorage.setItem('selectedPlan',plan);
-    document.getElementById('registro').scrollIntoView({behavior:'smooth'});
-    alert(plan+" seleccionado. Completa tu registro.");
-  });
-});
+let usuario = {
+  nombre: "",
+  edad: "",
+  pais: "",
+  puntos: 0,
+  nivel: 0
+};
 
-const form=document.querySelector('#registro form');
-form.addEventListener('submit',e=>{
-  e.preventDefault();
-  const nombre=document.getElementById('nombre').value;
-  const edad=document.getElementById('edad').value;
-  const pais=document.getElementById('pais').value;
-  const contacto=document.getElementById('contacto').value;
-  const plan=sessionStorage.getItem('selectedPlan')||'No seleccionado';
+let niveles = [
+  {
+    nombre: "Nivel 1 - Básico",
+    leccion: "Saludos básicos",
+    ejercicios: [
+      { pregunta: "Hola", respuesta: "hello" },
+      { pregunta: "Gracias", respuesta: "thank you" },
+      { pregunta: "Adiós", respuesta: "goodbye" }
+    ]
+  },
+  {
+    nombre: "Nivel 2 - Intermedio",
+    leccion: "Frases comunes",
+    ejercicios: [
+      { pregunta: "¿Cómo estás?", respuesta: "how are you" },
+      { pregunta: "Me llamo Ana", respuesta: "my name is ana" },
+      { pregunta: "Hasta pronto", respuesta: "see you soon" }
+    ]
+  }
+];
 
-  const texto=encodeURIComponent(
-    `Nuevo Registro:%0A
-Nombre: ${nombre}%0A
-Edad: ${edad}%0A
-País: ${pais}%0A
-Contacto: ${contacto}%0A
-Plan: ${plan}`
-  );
+let indice = 0;
 
-  window.open('https://wa.me/18297425652?text='+texto,'_blank');
-});
+function entrarClase() {
+  usuario.nombre = prompt("Ingrese su nombre:");
+  usuario.edad = prompt("Edad:");
+  usuario.pais = prompt("País:");
+
+  document.getElementById("bienvenida").innerText =
+  "🎓 Bienvenido a tus lecciones de NICO-VOXBOT ACADEMY, " + usuario.nombre;
+
+  document.getElementById("clase-privada").style.display = "block";
+  iniciarNivel();
+  guardarProgreso();
+}
+
+function iniciarNivel() {
+  let nivel = niveles[usuario.nivel];
+  document.getElementById("nivel").innerText = nivel.nombre;
+  document.getElementById("leccion").innerText = nivel.leccion;
+  indice = 0;
+  mostrarPregunta();
+}
+
+function mostrarPregunta() {
+  let nivel = niveles[usuario.nivel];
+
+  if (indice < nivel.ejercicios.length) {
+    document.getElementById("pregunta").innerText =
+    nivel.ejercicios[indice].pregunta;
+    document.getElementById("respuesta").value = "";
+  } else {
+    document.getElementById("pregunta").innerText = "✅ Nivel completado";
+  }
+}
+
+function verificarRespuesta() {
+  let nivel = niveles[usuario.nivel];
+  let user = document.getElementById("respuesta").value.toLowerCase();
+  let correcta = nivel.ejercicios[indice].respuesta;
+
+  if (user === correcta) {
+    usuario.puntos += 10;
+    document.getElementById("resultado").innerText = "✅ Correcto!";
+  } else {
+    document.getElementById("resultado").innerText =
+    "❌ Incorrecto. Era: " + correcta;
+  }
+
+  document.getElementById("puntos").innerText = usuario.puntos;
+  indice++;
+  guardarProgreso();
+  setTimeout(mostrarPregunta, 1000);
+}
+
+function siguienteNivel() {
+  if (usuario.nivel < niveles.length - 1) {
+    usuario.nivel++;
+    iniciarNivel();
+  } else {
+    document.getElementById("pregunta").innerText =
+    "🏆 Curso completado, certificado generado";
+  }
+  guardarProgreso();
+}
+
+function modoNinos() {
+  alert("🎮 Misión infantil activada. ¡Completa ejercicios y gana estrellas!");
+}
+
+function soporte() {
+  window.open("https://wa.me/18099999999", "_blank");
+}
+
+function guardarProgreso() {
+  localStorage.setItem("nicoUsuario", JSON.stringify(usuario));
+}
+
+function cargarProgreso() {
+  let data = localStorage.getItem("nicoUsuario");
+  if (data) {
+    usuario = JSON.parse(data);
+    document.getElementById("puntos").innerText = usuario.puntos;
+  }
+}
+
+window.onload = cargarProgreso;
 </script>
 
 </body>
