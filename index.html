@@ -4,179 +4,200 @@
   <meta charset="UTF-8">
   <title>Nico-VoxBot Academy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(120deg, #0a2342, #145da0);
+      background: linear-gradient(to right, #081c3a, #0f2e5a);
       color: white;
     }
     header {
-      padding: 15px 20px;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #061a33;
-    }
-    header h1 {
-      font-size: 20px;
     }
     nav a {
       color: white;
-      margin-left: 15px;
+      margin-left: 20px;
       text-decoration: none;
       font-weight: bold;
     }
     .hero {
-      padding: 40px 20px;
-      display: grid;
-      gap: 20px;
+      padding: 60px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
     }
-    .hero h2 {
-      font-size: 32px;
+    .hero-text {
+      max-width: 600px;
     }
-    .precio {
-      background: white;
-      color: #061a33;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-      max-width: 350px;
-    }
-    .precio button {
-      background: #0a58ca;
-      color: white;
-      border: none;
-      padding: 15px;
-      width: 100%;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    section {
-      padding: 40px 20px;
-      background: white;
-      color: #061a33;
-      margin-top: 20px;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
     }
     .card {
-      background: #f1f1f1;
-      padding: 20px;
-      border-radius: 10px;
+      background: white;
+      color: black;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 350px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .btn {
+      background: #4da3ff;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    section {
+      padding: 60px 20px;
       text-align: center;
     }
-    .card button {
-      margin-top: 10px;
-      background: #0a58ca;
-      color: white;
-      border: none;
-      padding: 10px;
-      width: 100%;
-      border-radius: 5px;
+    .planes {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .plan {
+      background: white;
+      color: black;
+      padding: 25px;
+      border-radius: 12px;
+      width: 280px;
+    }
+    .idiomas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+      margin-top: 25px;
+    }
+    .idioma {
+      background: #4da3ff;
+      padding: 8px;
+      border-radius: 8px;
+      font-weight: bold;
     }
     footer {
-      background: #061a33;
+      background: #041427;
       padding: 20px;
       text-align: center;
-    }
-    footer a {
-      color: #8ecae6;
-      text-decoration: none;
-      display: block;
-      margin: 10px 0;
     }
   </style>
 </head>
+
 <body>
 
 <header>
-  <h1>🎧 Nico-VoxBot Academy</h1>
+  <h2>🎧 Nico-VoxBot</h2>
   <nav>
-    <a href="#registro">Registro</a>
+    <a href="#inicio">Inicio</a>
+    <a href="#planes">Planes</a>
     <a href="#idiomas">Idiomas</a>
-    <a href="#clases">Clases IA</a>
-    <a href="#soporte">Soporte</a>
+    <a href="#contacto">Contacto</a>
   </nav>
 </header>
 
-<section class="hero">
-  <h2>La forma más inteligente de aprender idiomas</h2>
-  <p>Clases personalizadas con Inteligencia Artificial, para niños, jóvenes y adultos.</p>
+<section class="hero" id="inicio">
+  <div class="hero-text">
+    <h1>Idiomas que conectan tu futuro</h1>
+    <p>
+      Nico-VoxBot Academy es una plataforma de aprendizaje de idiomas usando 
+      Inteligencia Artificial que enseña de forma personalizada con voz, ejercicios,
+      tareas y actividades interactivas. La IA puede usarse desde este mismo momento,
+      disponible 24/7 desde cualquier dispositivo.
+    </p>
+    <p>La forma más inteligente de aprender idiomas.</p>
+  </div>
 
-  <div class="precio">
-    <h3>Acceso completo</h3>
-    <p><strong>US$3.99 al mes</strong></p>
-    <button>✅ Pagar con PayPal</button>
+  <div class="card">
+    <h2>Aprende cualquier idioma</h2>
+    <h3>Solo US$3.99 al mes</h3>
+    <a class="btn" href="#planes">Suscribirme ahora</a>
   </div>
 </section>
 
-<section id="mision">
-  <h2>🎯 Nuestra Misión</h2>
-  <p>
-    En Nico-VoxBot Academy nuestra misión es enseñar idiomas de forma fácil, económica y accesible para todo el mundo, usando Inteligencia Artificial, actividades prácticas y acompañamiento continuo.
-  </p>
+<section id="planes">
+  <h2>Planes Disponibles</h2>
+
+  <div class="planes">
+    <div class="plan">
+      <h3>Plan Mensual</h3>
+      <h2>US$3.99</h2>
+      <p>Acceso a todos los idiomas</p>
+      <p>Ejercicios, tareas y práctica con IA</p>
+      <p>Disponible 24/7</p>
+      <a class="btn" href="#">Pagar con PayPal</a>
+    </div>
+
+    <div class="plan">
+      <h3>Plan Anual</h3>
+      <h2>US$39.99</h2>
+      <p>Ahorra 2 meses</p>
+      <p>Acceso completo todo el año</p>
+      <p>Certificados digitales</p>
+      <a class="btn" href="#">Pagar con PayPal</a>
+    </div>
+
+    <div class="plan">
+      <h3>Plan Familiar</h3>
+      <h2>US$9.99 / mes</h2>
+      <p>Hasta 5 estudiantes</p>
+      <p>Control para padres</p>
+      <p>Clases con IA para niños y adultos</p>
+      <a class="btn" href="#">Pagar con PayPal</a>
+    </div>
+  </div>
 </section>
 
 <section id="idiomas">
-  <h2>🌍 Más de 20 Idiomas</h2>
-  <div class="cards">
-    <div class="card">Inglés</div>
-    <div class="card">Francés</div>
-    <div class="card">Italiano</div>
-    <div class="card">Portugués</div>
-    <div class="card">Alemán</div>
-    <div class="card">Hindi</div>
-    <div class="card">Japonés</div>
-    <div class="card">Coreano</div>
-    <div class="card">Ruso</div>
-    <div class="card">Chino</div>
+  <h2>20 Idiomas Disponibles</h2>
+
+  <div class="idiomas">
+    <div class="idioma">Inglés</div>
+    <div class="idioma">Español</div>
+    <div class="idioma">Francés</div>
+    <div class="idioma">Italiano</div>
+    <div class="idioma">Portugués</div>
+    <div class="idioma">Alemán</div>
+    <div class="idioma">Chino</div>
+    <div class="idioma">Japonés</div>
+    <div class="idioma">Coreano</div>
+    <div class="idioma">Ruso</div>
+    <div class="idioma">Árabe</div>
+    <div class="idioma">Hindi</div>
+    <div class="idioma">Turco</div>
+    <div class="idioma">Holandés</div>
+    <div class="idioma">Sueco</div>
+    <div class="idioma">Noruego</div>
+    <div class="idioma">Polaco</div>
+    <div class="idioma">Griego</div>
+    <div class="idioma">Hebreo</div>
+    <div class="idioma">Vietnamita</div>
   </div>
+
+  <p style="margin-top:25px;">
+    Cada idioma incluye: ejercicios, tareas, pruebas, conversación guiada,
+    actividades interactivas y tutor con Inteligencia Artificial en tiempo real.
+  </p>
 </section>
 
-<section id="clases">
-  <h2>🤖 Clases con IA + Tareas</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>👦 Niños</h3>
-      <p>Juegos, pronunciación, tareas divertidas.</p>
-      <button>Entrar</button>
-    </div>
-    <div class="card">
-      <h3>🧑 Jóvenes</h3>
-      <p>Conversación, escritura, retos.</p>
-      <button>Entrar</button>
-    </div>
-    <div class="card">
-      <h3>🧓 Adultos</h3>
-      <p>Negocios, viajes, entrevistas.</p>
-      <button>Entrar</button>
-    </div>
-  </div>
-</section>
-
-<section id="registro">
-  <h2>📝 Registro de Estudiantes</h2>
-  <p>Luego de pagar podrás acceder automáticamente a tu sección de clases.</p>
-  <button>✅ Crear Cuenta</button>
-  <button>📚 Entrar a mi Sección de Clases</button>
-</section>
-
-<section id="soporte">
-  <h2>🛠 Soporte</h2>
-  <p>¿Tienes problemas? Escríbenos y te ayudamos rápido.</p>
-  <button>💬 Contactar Soporte</button>
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p>Soporte: soporte@nicovoxbot.com</p>
+  <p>Pagos seguros por PayPal</p>
 </section>
 
 <footer>
-  <p>© 2025 Nico-VoxBot Academy</p>
-  <a href="#">Términos</a>
-  <a href="#">Privacidad</a>
+  <p>© 2025 Nico-VoxBot Academy | Todos los derechos reservados</p>
 </footer>
 
 </body>
