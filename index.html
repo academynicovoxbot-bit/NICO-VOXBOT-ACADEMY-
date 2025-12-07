@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>NICO-VOXBOT ACADEMY</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body {
   margin: 0;
@@ -12,43 +13,52 @@ body {
   color: white;
   text-align: center;
 }
+
 header {
   padding: 20px;
   background: rgba(0,0,0,0.3);
 }
+
 section {
   padding: 20px;
   background: white;
   color: black;
-  margin: 10px;
+  margin: 12px;
   border-radius: 15px;
 }
+
 button {
   padding: 12px 20px;
   border: none;
   font-size: 16px;
   border-radius: 10px;
-  margin: 5px;
+  margin: 6px;
   background: #0072ff;
   color: white;
+  cursor: pointer;
 }
+
 input {
   padding: 10px;
   margin: 5px;
   width: 85%;
 }
-iframe {
-  width: 100%;
-  height: 420px;
-  border-radius: 10px;
-  border: none;
+
+.chatbox {
+  border: 2px solid #0072ff;
+  padding: 10px;
+  height: 300px;
+  overflow-y: auto;
+  text-align: left;
+  margin-bottom: 10px;
 }
+
+.user { color: blue; }
+.bot { color: green; }
+
 .idiomas-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-}
-.medalla {
-  font-size: 30px;
 }
 </style>
 </head>
@@ -62,7 +72,7 @@ iframe {
 
 <section>
 <h2>🎯 MISIÓN</h2>
-<p>Brindar educación en idiomas accesible, inteligente y divertida para niños, jóvenes y adultos mediante tecnología, juegos, IA y práctica real.</p>
+<p>Brindar educación en idiomas accesible, inteligente y divertida para niños, jóvenes y adultos mediante tecnología, juegos, práctica real y asistencia con IA educativa.</p>
 </section>
 
 <section>
@@ -70,7 +80,7 @@ iframe {
 <input placeholder="Nombre completo">
 <input placeholder="Edad">
 <input placeholder="Correo electrónico">
-<input placeholder="Contacto telefónico">
+<input placeholder="Contacto">
 <button>Registrarse</button>
 </section>
 
@@ -83,19 +93,31 @@ iframe {
 
 <section>
 <h2>📚 MI CURSO</h2>
-<p>Aquí llevarás tu progreso, clases, actividades y medallas.</p>
+<p>Aquí verás tus clases, tus tareas y tu progreso.</p>
 <button>Entrar a mi curso</button>
 </section>
 
+<!-- IA TIPO CHATGPT PARA LECCIONES -->
 <section>
-<h2>🤖 EMPEZAR CON LA IA (DEMO FUNCIONAL)</h2>
-<iframe src="https://www.librelingo.app/es"></iframe>
-<p>Esta IA demo te permite practicar desde ya</p>
+<h2>🤖 IA DE LECCIONES (TIPO CHATGPT)</h2>
+
+<div class="chatbox" id="chat">
+  <div class="bot">Hola, soy tu profesor de idiomas. Escribe: "Inglés", "Francés" o "Portugués".</div>
+</div>
+
+<input id="mensaje" placeholder="Escribe aquí tu respuesta...">
+<button onclick="enviar()">Enviar</button>
+</section>
+
+<!-- LIBRELINGO REAL -->
+<section>
+<h2>🌍 CLASES REALES CON LIBRELINGO</h2>
+<p>Abre LibreLingo en una pestaña nueva para practicar desde ya:</p>
+<button onclick="window.open('https://librelingo.app','_blank')">Entrar a LibreLingo</button>
 </section>
 
 <section>
 <h2>🧒 ÁREA DE NIÑOS</h2>
-<p>Juegos educativos con imágenes y premios</p>
 <button>Juego de palabras</button>
 <button>Juego de sonidos</button>
 <button>Juego de figuras</button>
@@ -103,35 +125,24 @@ iframe {
 
 <section>
 <h2>🏅 NIVELES Y MEDALLAS</h2>
-<p>Nivel Principiante 🥉</p>
-<p>Nivel Intermedio 🥈</p>
-<p>Nivel Avanzado 🥇</p>
-<p class="medalla">🏅 🏆 🎖️</p>
+<p>🥉 Principiante</p>
+<p>🥈 Intermedio</p>
+<p>🥇 Avanzado</p>
 </section>
 
 <section>
-<h2>🌍 20 IDIOMAS DISPONIBLES</h2>
+<h2>🌍 20 IDIOMAS</h2>
 <div class="idiomas-grid">
-<p>🇺🇸 Inglés</p>
-<p>🇫🇷 Francés</p>
-<p>🇮🇹 Italiano</p>
-<p>🇩🇪 Alemán</p>
-<p>🇵🇹 Portugués</p>
-<p>🇨🇳 Chino</p>
-<p>🇯🇵 Japonés</p>
-<p>🇰🇷 Coreano</p>
-<p>🇷🇺 Ruso</p>
-<p>🇸🇦 Árabe</p>
-<p>🇹🇷 Turco</p>
-<p>🇮🇳 Hindi</p>
-<p>🇳🇱 Holandés</p>
-<p>🇸🇪 Sueco</p>
-<p>🇵🇱 Polaco</p>
-<p>🇬🇷 Griego</p>
-<p>🇹🇭 Tailandés</p>
-<p>🇮🇱 Hebreo</p>
-<p>🇨🇿 Checo</p>
-<p>🇫🇮 Finés</p>
+<p>Inglés</p><p>Francés</p>
+<p>Italiano</p><p>Alemán</p>
+<p>Portugués</p><p>Chino</p>
+<p>Japonés</p><p>Coreano</p>
+<p>Ruso</p><p>Árabe</p>
+<p>Turco</p><p>Hindi</p>
+<p>Holandés</p><p>Sueco</p>
+<p>Polaco</p><p>Griego</p>
+<p>Tailandés</p><p>Hebreo</p>
+<p>Checo</p><p>Finés</p>
 </div>
 </section>
 
@@ -149,16 +160,31 @@ iframe {
 <button onclick="window.location.href='https://wa.me/18297425652'">Abrir Soporte</button>
 </section>
 
-<section>
-<h2>⚙ PANEL DE ADMINISTRADOR (DEMO)</h2>
-<button>Ver alumnos</button>
-<button>Ver pagos</button>
-<button>Ver progreso</button>
-</section>
-
 <footer style="padding:15px;background:black;">
 <p>© 2025 NICO-VOXBOT ACADEMY</p>
 </footer>
+
+<script>
+function enviar() {
+  let chat = document.getElementById("chat");
+  let msg = document.getElementById("mensaje").value.toLowerCase();
+
+  chat.innerHTML += "<div class='user'>Tú: " + msg + "</div>";
+
+  let res = "Excelente. Primera lección: Saludos básicos.";
+
+  if (msg.includes("inglés")) res = "Inglés: Hello = Hola, How are you? = ¿Cómo estás?";
+  if (msg.includes("francés")) res = "Francés: Bonjour = Hola, Comment ça va? = ¿Cómo estás?";
+  if (msg.includes("portugués")) res = "Portugués: Olá = Hola, Tudo bem? = ¿Todo bien?";
+
+  setTimeout(() => {
+    chat.innerHTML += "<div class='bot'>IA: " + res + "</div>";
+  }, 800);
+
+  document.getElementById("mensaje").value = "";
+  chat.scrollTop = chat.scrollHeight;
+}
+</script>
 
 </body>
 </html>
