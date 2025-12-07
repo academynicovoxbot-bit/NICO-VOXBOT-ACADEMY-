@@ -1,172 +1,164 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>NICO-VOXBOT ACADEMY</title>
+<meta charset="UTF-8">
+<title>NICO-VOXBOT ACADEMY</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+  text-align: center;
+}
+header {
+  padding: 20px;
+  background: rgba(0,0,0,0.3);
+}
+section {
+  padding: 20px;
+  background: white;
+  color: black;
+  margin: 10px;
+  border-radius: 15px;
+}
+button {
+  padding: 12px 20px;
+  border: none;
+  font-size: 16px;
+  border-radius: 10px;
+  margin: 5px;
+  background: #0072ff;
+  color: white;
+}
+input {
+  padding: 10px;
+  margin: 5px;
+  width: 85%;
+}
+iframe {
+  width: 100%;
+  height: 420px;
+  border-radius: 10px;
+  border: none;
+}
+.idiomas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.medalla {
+  font-size: 30px;
+}
+</style>
 </head>
 
-<body style="margin:0; font-family:Arial; background:#0a1f44; color:white; text-align:center; padding-bottom:200px;">
+<body>
 
-<h1 style="padding-top:30px;">🤖 NICO-VOXBOT ACADEMY</h1>
+<header>
+<h1>🎓 NICO-VOXBOT ACADEMY</h1>
 <p>La forma más inteligente de aprender cualquier idioma</p>
+</header>
 
-<!-- ================= MISIÓN ================= -->
-<div style="background:#111; padding:25px; margin:20px; border-radius:15px;">
-  <h2>🎯 Nuestra Misión</h2>
-  <p>
-    En NICO-VOXBOT ACADEMY nuestra misión es ofrecer educación de idiomas accesible,
-    inteligente y divertida para niños y adultos, utilizando Inteligencia Artificial,
-    juegos, voz interactiva y tecnología moderna para que cualquier persona pueda
-    aprender desde cualquier lugar del mundo.
-  </p>
+<section>
+<h2>🎯 MISIÓN</h2>
+<p>Brindar educación en idiomas accesible, inteligente y divertida para niños, jóvenes y adultos mediante tecnología, juegos, IA y práctica real.</p>
+</section>
+
+<section>
+<h2>📝 REGISTRO</h2>
+<input placeholder="Nombre completo">
+<input placeholder="Edad">
+<input placeholder="Correo electrónico">
+<input placeholder="Contacto telefónico">
+<button>Registrarse</button>
+</section>
+
+<section>
+<h2>🔑 INICIAR SESIÓN</h2>
+<input placeholder="Correo">
+<input placeholder="Contraseña">
+<button>Entrar</button>
+</section>
+
+<section>
+<h2>📚 MI CURSO</h2>
+<p>Aquí llevarás tu progreso, clases, actividades y medallas.</p>
+<button>Entrar a mi curso</button>
+</section>
+
+<section>
+<h2>🤖 EMPEZAR CON LA IA (DEMO FUNCIONAL)</h2>
+<iframe src="https://www.librelingo.app/es"></iframe>
+<p>Esta IA demo te permite practicar desde ya</p>
+</section>
+
+<section>
+<h2>🧒 ÁREA DE NIÑOS</h2>
+<p>Juegos educativos con imágenes y premios</p>
+<button>Juego de palabras</button>
+<button>Juego de sonidos</button>
+<button>Juego de figuras</button>
+</section>
+
+<section>
+<h2>🏅 NIVELES Y MEDALLAS</h2>
+<p>Nivel Principiante 🥉</p>
+<p>Nivel Intermedio 🥈</p>
+<p>Nivel Avanzado 🥇</p>
+<p class="medalla">🏅 🏆 🎖️</p>
+</section>
+
+<section>
+<h2>🌍 20 IDIOMAS DISPONIBLES</h2>
+<div class="idiomas-grid">
+<p>🇺🇸 Inglés</p>
+<p>🇫🇷 Francés</p>
+<p>🇮🇹 Italiano</p>
+<p>🇩🇪 Alemán</p>
+<p>🇵🇹 Portugués</p>
+<p>🇨🇳 Chino</p>
+<p>🇯🇵 Japonés</p>
+<p>🇰🇷 Coreano</p>
+<p>🇷🇺 Ruso</p>
+<p>🇸🇦 Árabe</p>
+<p>🇹🇷 Turco</p>
+<p>🇮🇳 Hindi</p>
+<p>🇳🇱 Holandés</p>
+<p>🇸🇪 Sueco</p>
+<p>🇵🇱 Polaco</p>
+<p>🇬🇷 Griego</p>
+<p>🇹🇭 Tailandés</p>
+<p>🇮🇱 Hebreo</p>
+<p>🇨🇿 Checo</p>
+<p>🇫🇮 Finés</p>
 </div>
+</section>
 
-<!-- ================= 20 IDIOMAS ================= -->
-<div style="margin:20px;">
-  <h2>🌍 20 Idiomas Disponibles</h2>
-  <p>
-    Inglés 🇺🇸 | Español 🇪🇸 | Francés 🇫🇷 | Alemán 🇩🇪 | Italiano 🇮🇹 | Portugués 🇧🇷 |  
-    Chino 🇨🇳 | Japonés 🇯🇵 | Coreano 🇰🇷 | Ruso 🇷🇺 | Árabe 🇸🇦 |  
-    Turco 🇹🇷 | Holandés 🇳🇱 | Sueco 🇸🇪 | Polaco 🇵🇱 | Hindi 🇮🇳 |  
-    Griego 🇬🇷 | Hebreo 🇮🇱 | Tailandés 🇹🇭 | Indonesio 🇮🇩
-  </p>
-</div>
+<section>
+<h2>💳 PLANES DE PAGO</h2>
+<p>✅ Mensual: US$3.99</p>
+<p>✅ Anual: US$39.99</p>
+<p>✅ Familiar: US$69.99</p>
+<button>Pagar ahora</button>
+</section>
 
-<!-- ================= PLANES DE PAGO ================= -->
-<div style="background:white; color:black; padding:30px; margin:20px; border-radius:15px;">
-  <h2>💳 Planes de Suscripción</h2>
+<section>
+<h2>🛠 SOPORTE TÉCNICO</h2>
+<p>📞 WhatsApp: 829-742-5652</p>
+<button onclick="window.location.href='https://wa.me/18297425652'">Abrir Soporte</button>
+</section>
 
-  <div style="max-width:900px; margin:auto; display:flex; flex-wrap:wrap; justify-content:center; gap:20px;">
+<section>
+<h2>⚙ PANEL DE ADMINISTRADOR (DEMO)</h2>
+<button>Ver alumnos</button>
+<button>Ver pagos</button>
+<button>Ver progreso</button>
+</section>
 
-    <div style="border:2px solid #4CAF50; padding:20px; border-radius:10px; width:250px;">
-      <h3>🟢 Plan Mensual</h3>
-      <p><b>US$3.99 / mes</b></p>
-      <p>✔ Acceso total a IA</p>
-      <p>✔ Juegos y actividades</p>
-      <p>✔ Todos los idiomas</p>
-      <a href="https://www.paypal.com" target="_blank">
-        <button style="padding:10px 20px;">Pagar</button>
-      </a>
-    </div>
-
-    <div style="border:2px solid #2196F3; padding:20px; border-radius:10px; width:250px;">
-      <h3>🔵 Plan Anual</h3>
-      <p><b>US$39.99 / año</b></p>
-      <p>✔ 2 meses gratis</p>
-      <p>✔ Certificados</p>
-      <p>✔ Acceso ilimitado</p>
-      <a href="https://www.paypal.com" target="_blank">
-        <button style="padding:10px 20px;">Pagar</button>
-      </a>
-    </div>
-
-    <div style="border:2px solid #FF9800; padding:20px; border-radius:10px; width:250px;">
-      <h3>🟠 Plan Familiar</h3>
-      <p><b>US$7.99 / mes</b></p>
-      <p>✔ Hasta 5 estudiantes</p>
-      <p>✔ Panel de padres</p>
-      <p>✔ Juegos para niños</p>
-      <a href="https://www.paypal.com" target="_blank">
-        <button style="padding:10px 20px;">Pagar</button>
-      </a>
-    </div>
-
-  </div>
-</div>
-
-<!-- ================= BOTONES PRINCIPALES ================= -->
-<div style="margin:30px;">
-
-  <button onclick="mostrarRegistro()" style="padding:15px 25px; font-size:17px;">
-    📝 Registrarme
-  </button>
-
-  <button onclick="mostrarLogin()" style="padding:15px 25px; font-size:17px;">
-    🔑 Iniciar Sesión
-  </button>
-
-  <button onclick="mostrarCurso()" style="padding:15px 25px; font-size:17px;">
-    📚 Mi Curso
-  </button>
-
-  <a href="https://wa.me/18297525652" target="_blank">
-    <button style="padding:15px 25px; font-size:17px;">
-      🛠 Soporte Técnico
-    </button>
-  </a>
-
-</div>
-
-<!-- ================= REGISTRO ================= -->
-<div id="registro" style="display:none;">
-  <h2>📝 Registro</h2>
-  <input placeholder="Nombre"><br><br>
-  <input placeholder="Correo"><br><br>
-  <input placeholder="Edad"><br><br>
-  <input placeholder="Contraseña"><br><br>
-  <button onclick="registrar()">Crear cuenta</button>
-</div>
-
-<!-- ================= LOGIN ================= -->
-<div id="login" style="display:none;">
-  <h2>🔑 Iniciar Sesión</h2>
-  <input placeholder="Correo"><br><br>
-  <input placeholder="Contraseña"><br><br>
-  <button onclick="login()">Entrar</button>
-</div>
-
-<!-- ================= MI CURSO ================= -->
-<div id="curso" style="display:none;">
-  <h2>📚 Mi Curso</h2>
-
-  <a href="https://librelingo.app" target="_blank">
-    <button>📘 LibreLingo</button>
-  </a>
-
-  <button onclick="enviarIA()">🤖 Mi Profesor IA</button>
-
-  <br><br>
-  <select>
-    <option>Modo Adulto</option>
-    <option>Modo Niño</option>
-  </select>
-
-  <select>
-    <option>Nivel Inicial</option>
-    <option>Nivel Medio</option>
-    <option>Nivel Avanzado</option>
-  </select>
-
-  <br><br>
-  <textarea id="msg" placeholder="Escribe tu clase..." style="width:80%; height:100px;"></textarea>
-  <br><br>
-
-  <div id="respuesta" style="background:#000; padding:20px; margin:20px;"></div>
-
-  <h3>🏅 Medallas</h3>
-  <div id="medallas">⬜ ⬜ ⬜</div>
-</div>
-
-<script>
-let usuario=false;
-let m=0;
-
-function mostrarRegistro(){ocultar();registro.style.display="block";}
-function mostrarLogin(){ocultar();login.style.display="block";}
-function mostrarCurso(){if(!usuario){alert("Inicie sesión"); return;} ocultar(); curso.style.display="block";}
-function ocultar(){registro.style.display="none"; login.style.display="none"; curso.style.display="none";}
-function registrar(){alert("Registro exitoso"); mostrarLogin();}
-function login(){usuario=true; alert("Sesión iniciada"); mostrarCurso();}
-
-function enviarIA(){
-  respuesta.innerHTML="✅ Clase generada por tu IA...";
-  speechSynthesis.speak(new SpeechSynthesisUtterance("Excelente trabajo, sigue aprendiendo"));
-  m++;
-  if(m==1) medallas.innerHTML="🥉 ⬜ ⬜";
-  if(m==2) medallas.innerHTML="🥉 🥈 ⬜";
-  if(m>=3) medallas.innerHTML="🥉 🥈 🥇";
-}
-</script>
+<footer style="padding:15px;background:black;">
+<p>© 2025 NICO-VOXBOT ACADEMY</p>
+</footer>
 
 </body>
 </html>
