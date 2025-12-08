@@ -1,189 +1,133 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>NICO-VOXBOT ACADEMY</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #00c6ff, #0072ff);
-  color: white;
-  text-align: center;
-}
-
-header {
-  padding: 20px;
-  background: rgba(0,0,0,0.3);
-}
-
-section {
-  padding: 20px;
-  background: white;
-  color: black;
-  margin: 12px;
-  border-radius: 15px;
-}
-
-button {
-  padding: 12px 20px;
-  border: none;
-  font-size: 16px;
-  border-radius: 10px;
-  margin: 6px;
-  background: #0072ff;
-  color: white;
-  cursor: pointer;
-}
-
-input {
-  padding: 10px;
-  margin: 5px;
-  width: 85%;
-}
-
-.chatbox {
-  border: 2px solid #0072ff;
-  padding: 10px;
-  height: 300px;
-  overflow-y: auto;
-  text-align: left;
-  margin-bottom: 10px;
-}
-
-.user { color: blue; }
-.bot { color: green; }
-
-.idiomas-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-</style>
+  <meta charset="UTF-8">
+  <title>NICO-VOXBOT ACADEMY</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; background:#f2f6ff; }
+    header { background:#1e3a8a; color:white; padding:15px; text-align:center; }
+    nav { background:#2563eb; padding:10px; text-align:center; }
+    nav a { color:white; margin:8px; text-decoration:none; font-weight:bold; }
+    section { padding:20px; }
+    .card { background:white; border-radius:10px; padding:15px; margin-bottom:20px; box-shadow:0 0 5px rgba(0,0,0,.1); }
+    .btn { background:#1e3a8a; padding:10px 15px; color:white; border:none; border-radius:8px; cursor:pointer; margin-top:10px; }
+    iframe { width:100%; height:600px; border-radius:12px; border:2px solid #1e3a8a; }
+    footer { background:#1e3a8a; color:white; text-align:center; padding:15px; }
+  </style>
 </head>
-
 <body>
 
 <header>
-<h1>🎓 NICO-VOXBOT ACADEMY</h1>
-<p>La forma más inteligente de aprender cualquier idioma</p>
+  <h1>NICO-VOXBOT ACADEMY</h1>
+  <p>Aprende idiomas con Inteligencia Artificial</p>
 </header>
 
-<section>
-<h2>🎯 MISIÓN</h2>
-<p>Brindar educación en idiomas accesible, inteligente y divertida para niños, jóvenes y adultos mediante tecnología, juegos, práctica real y asistencia con IA educativa.</p>
+<nav>
+  <a href="#cursos">Idiomas</a>
+  <a href="#librelingo">LibreLingo</a>
+  <a href="#planes">Planes</a>
+  <a href="#ninos">Niños</a>
+  <a href="#registro">Registro</a>
+  <a href="#login">Iniciar Sesión</a>
+  <a href="#mi-curso">Mi Curso</a>
+  <a href="https://wa.me/18297425652" target="_blank">Soporte</a>
+</nav>
+
+<section class="card">
+  <h2>MISIÓN</h2>
+  <p>Nuestra misión es ofrecer educación de idiomas accesible, moderna y divertida usando Inteligencia Artificial, juegos y plataformas abiertas como LibreLingo.</p>
 </section>
 
-<section>
-<h2>📝 REGISTRO</h2>
-<input placeholder="Nombre completo">
-<input placeholder="Edad">
-<input placeholder="Correo electrónico">
-<input placeholder="Contacto">
-<button>Registrarse</button>
+<section class="card" id="cursos">
+  <h2>20 Idiomas Disponibles</h2>
+  <p>Inglés, Español, Francés, Alemán, Italiano, Portugués, Chino, Japonés, Coreano, Ruso, Árabe, Turco, Hindi, Holandés, Sueco, Polaco, Griego, Hebreo, Tailandés, Indonesio.</p>
 </section>
 
-<section>
-<h2>🔑 INICIAR SESIÓN</h2>
-<input placeholder="Correo">
-<input placeholder="Contraseña">
-<button>Entrar</button>
+<!-- ✅ LIBRELINGO INTEGRADO -->
+<section class="card" id="librelingo">
+  <h2>Clases con LibreLingo</h2>
+  <p>Puedes empezar clases gratis ahora mismo con LibreLingo desde aquí:</p>
+  <button class="btn" onclick="document.getElementById('libreFrame').style.display='block'">Abrir LibreLingo aquí</button>
+  <button class="btn" onclick="window.open('https://librelingo.app','_blank')">Abrir en otra pestaña</button>
+
+  <div id="libreFrame" style="display:none; margin-top:15px;">
+    <iframe src="https://librelingo.app"></iframe>
+  </div>
 </section>
 
-<section>
-<h2>📚 MI CURSO</h2>
-<p>Aquí verás tus clases, tus tareas y tu progreso.</p>
-<button>Entrar a mi curso</button>
+<section class="card" id="planes">
+  <h2>Planes de Pago</h2>
+  <ul>
+    <li>✅ Mensual: US$3.99</li>
+    <li>✅ Anual: US$39.99</li>
+    <li>✅ Familiar: US$7.99</li>
+  </ul>
+  <button class="btn">Pagar Ahora</button>
 </section>
 
-<!-- IA TIPO CHATGPT PARA LECCIONES -->
-<section>
-<h2>🤖 IA DE LECCIONES (TIPO CHATGPT)</h2>
-
-<div class="chatbox" id="chat">
-  <div class="bot">Hola, soy tu profesor de idiomas. Escribe: "Inglés", "Francés" o "Portugués".</div>
-</div>
-
-<input id="mensaje" placeholder="Escribe aquí tu respuesta...">
-<button onclick="enviar()">Enviar</button>
+<section class="card" id="ninos">
+  <h2>Área de Niños</h2>
+  <ul>
+    <li>🎮 Juegos de idiomas</li>
+    <li>🏅 Medallas y premios</li>
+    <li>🧩 Actividades con figuras</li>
+  </ul>
 </section>
 
-<!-- LIBRELINGO REAL -->
-<section>
-<h2>🌍 CLASES REALES CON LIBRELINGO</h2>
-<p>Abre LibreLingo en una pestaña nueva para practicar desde ya:</p>
-<button onclick="window.open('https://librelingo.app','_blank')">Entrar a LibreLingo</button>
+<section class="card" id="registro">
+  <h2>Registro</h2>
+  <input type="text" placeholder="Nombre"><br><br>
+  <input type="number" placeholder="Edad"><br><br>
+  <input type="email" placeholder="Correo"><br><br>
+  <button class="btn">Registrarse</button>
 </section>
 
-<section>
-<h2>🧒 ÁREA DE NIÑOS</h2>
-<button>Juego de palabras</button>
-<button>Juego de sonidos</button>
-<button>Juego de figuras</button>
+<section class="card" id="login">
+  <h2>Iniciar Sesión</h2>
+  <input type="email" placeholder="Correo"><br><br>
+  <input type="password" placeholder="Contraseña"><br><br>
+  <button class="btn">Entrar</button>
 </section>
 
-<section>
-<h2>🏅 NIVELES Y MEDALLAS</h2>
-<p>🥉 Principiante</p>
-<p>🥈 Intermedio</p>
-<p>🥇 Avanzado</p>
+<section class="card" id="mi-curso">
+  <h2>Mi Curso</h2>
+  <p>Aquí estarán tus clases, niveles, premios y progreso.</p>
 </section>
 
-<section>
-<h2>🌍 20 IDIOMAS</h2>
-<div class="idiomas-grid">
-<p>Inglés</p><p>Francés</p>
-<p>Italiano</p><p>Alemán</p>
-<p>Portugués</p><p>Chino</p>
-<p>Japonés</p><p>Coreano</p>
-<p>Ruso</p><p>Árabe</p>
-<p>Turco</p><p>Hindi</p>
-<p>Holandés</p><p>Sueco</p>
-<p>Polaco</p><p>Griego</p>
-<p>Tailandés</p><p>Hebreo</p>
-<p>Checo</p><p>Finés</p>
-</div>
+<section class="card" id="contacto">
+  <h2>Contacto Oficial</h2>
+  <p>📧 academynicovoxbot@gmail.com</p>
+  <p>📞 829-742-5652</p>
 </section>
 
-<section>
-<h2>💳 PLANES DE PAGO</h2>
-<p>✅ Mensual: US$3.99</p>
-<p>✅ Anual: US$39.99</p>
-<p>✅ Familiar: US$69.99</p>
-<button>Pagar ahora</button>
-</section>
-
-<section>
-<h2>🛠 SOPORTE TÉCNICO</h2>
-<p>📞 WhatsApp: 829-742-5652</p>
-<button onclick="window.location.href='https://wa.me/18297425652'">Abrir Soporte</button>
-</section>
-
-<footer style="padding:15px;background:black;">
-<p>© 2025 NICO-VOXBOT ACADEMY</p>
+<footer>
+  <p>📧 academynicovoxbot@gmail.com</p>
+  <p>📞 829-742-5652</p>
+  <p>NICO-VOXBOT ACADEMY © 2025</p>
 </footer>
 
+<!-- ✅ CHATBASE IA REAL INTEGRADA -->
 <script>
-function enviar() {
-  let chat = document.getElementById("chat");
-  let msg = document.getElementById("mensaje").value.toLowerCase();
-
-  chat.innerHTML += "<div class='user'>Tú: " + msg + "</div>";
-
-  let res = "Excelente. Primera lección: Saludos básicos.";
-
-  if (msg.includes("inglés")) res = "Inglés: Hello = Hola, How are you? = ¿Cómo estás?";
-  if (msg.includes("francés")) res = "Francés: Bonjour = Hola, Comment ça va? = ¿Cómo estás?";
-  if (msg.includes("portugués")) res = "Portugués: Olá = Hola, Tudo bem? = ¿Todo bien?";
-
-  setTimeout(() => {
-    chat.innerHTML += "<div class='bot'>IA: " + res + "</div>";
-  }, 800);
-
-  document.getElementById("mensaje").value = "";
-  chat.scrollTop = chat.scrollHeight;
-}
+(function(){
+if(!window.chatbase||window.chatbase("getState")!=="initialized"){
+window.chatbase=(...arguments)=>{
+if(!window.chatbase.q){window.chatbase.q=[]}
+window.chatbase.q.push(arguments)};
+window.chatbase=new Proxy(window.chatbase,{
+get(target,prop){
+if(prop==="q"){return target.q}
+return(...args)=>target(prop,...args)}
+})}
+const onLoad=function(){
+const script=document.createElement("script");
+script.src="https://www.chatbase.co/embed.min.js";
+script.id="fxrgAJ48ExA_xk5xf9j_0";
+script.domain="www.chatbase.co";
+document.body.appendChild(script)};
+if(document.readyState==="complete"){onLoad()}
+else{window.addEventListener("load",onLoad)}
+})();
 </script>
 
 </body>
