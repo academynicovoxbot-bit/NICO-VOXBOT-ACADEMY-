@@ -1,130 +1,188 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>NICO-VOXBOT ACADEMY</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { font-family: Arial, sans-serif; margin:0; background:#f2f6ff; }
-    header { background:#1e3a8a; color:white; padding:15px; text-align:center; }
-    nav { background:#2563eb; padding:10px; text-align:center; }
-    nav a { color:white; margin:8px; text-decoration:none; font-weight:bold; }
-    section { padding:20px; }
-    .card { background:white; border-radius:10px; padding:15px; margin-bottom:20px; box-shadow:0 0 5px rgba(0,0,0,.1); }
-    .btn { background:#1e3a8a; padding:10px 15px; color:white; border:none; border-radius:8px; cursor:pointer; margin-top:10px; }
-    iframe { width:100%; height:600px; border-radius:12px; border:2px solid #1e3a8a; }
-    footer { background:#1e3a8a; color:white; text-align:center; padding:15px; }
-  </style>
+<meta charset="UTF-8">
+<title>NICO-VOXBOT ACADEMY</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body { font-family: Arial; background:#f5f7fb; margin:0; }
+header { background:#1e3c72; color:white; padding:20px; text-align:center; }
+.card { background:white; padding:15px; margin:15px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,.1); }
+button, select, input { width:100%; padding:10px; margin:6px 0; border-radius:6px; border:1px solid #ccc; }
+button { background:#1e3c72; color:white; font-weight:bold; cursor:pointer; }
+.boton-ia-nico { position:fixed; bottom:90px; right:20px; background:#1e90ff; color:white; padding:14px 18px; border-radius:50px; font-weight:bold; text-decoration:none; z-index:9999; }
+</style>
 </head>
+
 <body>
 
 <header>
-  <h1>NICO-VOXBOT ACADEMY</h1>
-  <p><strong>La Forma Más Inteligente de Aprende Cuálquier Idioma</strong></p>
+<h1>NICO-VOXBOT ACADEMY</h1>
+<p><strong>La Forma Más Inteligente de Aprende Cuálquier Idioma</strong></p>
 </header>
 
-<nav>
-  <a href="#cursos">Idiomas</a>
-  <a href="#librelingo">LibreLingo</a>
-  <a href="#planes">Planes</a>
-  <a href="#ninos">Niños</a>
-  <a href="#registro">Registro</a>
-  <a href="#login">Iniciar Sesión</a>
-  <a href="#mi-curso">Mi Curso</a>
-  <a href="https://wa.me/18297425652" target="_blank">Soporte</a>
-</nav>
+<div class="card">
+<strong>Somos una plataforma educativa digital que utiliza inteligencia artificial para ofrecer una experiencia de aprendizaje de idiomas accesible, dinámica y efectiva, permitiendo que niños, jóvenes y adultos desarrollen habilidades lingüísticas que impulsen su futuro personal, académico y profesional, sin límites de tiempo ni ubicación, y a un precio muy asequible para todos.</strong>
+<p><strong>Aliado:</strong> LibreLingo</p>
+</div>
 
-<section class="card">
-  <p><strong>Somos una plataforma que ofrece clases de idiomas de la forma más accesible e inteligente para garantizar su futuro.</strong></p>
-</section>
+<div class="card">
+<h2>Registro</h2>
+<input placeholder="Nombre" id="nombre">
+<input type="number" placeholder="Edad">
+<input type="email" placeholder="Correo">
+<button onclick="registrar()">Registrarse</button>
+</div>
 
-<section class="card" id="cursos">
-  <h2>20 Idiomas Disponibles</h2>
-  <p>Inglés, Español, Francés, Alemán, Italiano, Portugués, Chino, Japonés, Coreano, Ruso, Árabe, Turco, Hindi, Holandés, Sueco, Polaco, Griego, Hebreo, Tailandés, Indonesio.</p>
-</section>
+<div class="card">
+<h2>🎮 Mi Curso - Juego PRO</h2>
 
-<section class="card" id="librelingo">
-  <h2>Clases con LibreLingo</h2>
-  <p>Puedes empezar clases gratis ahora mismo:</p>
-  <button class="btn" onclick="document.getElementById('libreFrame').style.display='block'">Abrir LibreLingo aquí</button>
-  <button class="btn" onclick="window.open('https://librelingo.app','_blank')">Abrir en otra pestaña</button>
+<select id="idioma" onchange="reiniciarJuego()">
+<option value="en">Inglés</option>
+<option value="fr">Francés</option>
+<option value="pt">Portugués</option>
+</select>
 
-  <div id="libreFrame" style="display:none; margin-top:15px;">
-    <iframe src="https://librelingo.app"></iframe>
-  </div>
-</section>
+<p><strong>Nivel:</strong> <span id="nivel">1</span></p>
+<p><strong>Puntos:</strong> <span id="puntos">0</span></p>
+<p><strong>Medallas:</strong> 🥉🥈🥇</p>
 
-<section class="card" id="planes">
-  <h2>Planes de Pago</h2>
-  <ul>
-    <li>✅ Mensual: US$3.99</li>
-    <li>✅ Anual: US$39.99</li>
-    <li>✅ Familiar: US$7.99</li>
-  </ul>
-  <button class="btn">Pagar Ahora</button>
-</section>
+<h3 id="pregunta"></h3>
 
-<section class="card" id="ninos">
-  <h2>Área de Niños</h2>
-  <ul>
-    <li>🎮 Juegos de idiomas</li>
-    <li>🏅 Medallas y premios</li>
-    <li>🧩 Actividades con figuras</li>
-  </ul>
-</section>
+<button onclick="responder(0)" id="btn0"></button>
+<button onclick="responder(1)" id="btn1"></button>
+<button onclick="responder(2)" id="btn2"></button>
+<button onclick="responder(3)" id="btn3"></button>
 
-<section class="card" id="registro">
-  <h2>Registro</h2>
-  <input type="text" placeholder="Nombre"><br><br>
-  <input type="number" placeholder="Edad"><br><br>
-  <input type="email" placeholder="Correo"><br><br>
-  <button class="btn">Registrarse</button>
-</section>
+<p id="mensaje"></p>
+</div>
 
-<section class="card" id="login">
-  <h2>Iniciar Sesión</h2>
-  <input type="email" placeholder="Correo"><br><br>
-  <input type="password" placeholder="Contraseña"><br><br>
-  <button class="btn">Entrar</button>
-</section>
+<!-- ✅ RANKING -->
+<div class="card">
+<h2>🏆 Ranking de Estudiantes</h2>
+<ul id="ranking"></ul>
+</div>
 
-<section class="card" id="mi-curso">
-  <h2>Mi Curso</h2>
-  <p>Aquí estarán tus clases, niveles, premios y progreso.</p>
-</section>
+<!-- ✅ CERTIFICADO -->
+<div class="card" id="certificado" style="display:none">
+<h2>🎓 CERTIFICADO</h2>
+<p>Otorgado a:</p>
+<h3 id="certNombre"></h3>
+<p>Por completar el nivel 3 con éxito</p>
+<p><strong>NICO-VOXBOT ACADEMY</strong></p>
+<button onclick="window.print()">Descargar Certificado</button>
+</div>
 
-<section class="card" id="contacto">
-  <h2>Contacto Oficial</h2>
-  <p>📧 academynicovoxbot@gmail.com</p>
-  <p>📞 829-742-5652</p>
-</section>
+<div class="card">
+📧 academynicovoxbot@gmail.com<br>
+📞 829-742-5652
+</div>
 
-<footer>
-  <p>📧 academynicovoxbot@gmail.com</p>
-  <p>📞 829-742-5652</p>
-  <p>NICO-VOXBOT ACADEMY © 2025</p>
-</footer>
+<a href="#" class="boton-ia-nico" onclick="window.chatbase('open')">🤖 IA</a>
 
-<!-- ✅ CHATBASE IA REAL INTEGRADA -->
+<script>
+let nivel = localStorage.getItem("nivel") ? parseInt(localStorage.getItem("nivel")) : 1;
+let puntos = localStorage.getItem("puntos") ? parseInt(localStorage.getItem("puntos")) : 0;
+let nombre = localStorage.getItem("nombre") || "";
+
+document.getElementById("nivel").innerText = nivel;
+document.getElementById("puntos").innerText = puntos;
+
+function registrar(){
+nombre=document.getElementById("nombre").value;
+localStorage.setItem("nombre", nombre);
+alert("Registro exitoso");
+}
+
+const juegos={
+en:[{p:"🐶 Dog",o:["Perro","Gato","Casa","Agua"],r:0},{p:"🍎 Apple",o:["Auto","Manzana","Libro","Sol"],r:1}],
+fr:[{p:"🐱 Chat",o:["Perro","Pájaro","Gato","Casa"],r:2},{p:"☀ Soleil",o:["Luna","Sol","Agua","Nube"],r:1}],
+pt:[{p:"🚗 Carro",o:["Casa","Auto","Mesa","Sol"],r:1},{p:"📘 Livro",o:["Libro","Agua","Reloj","Luz"],r:0}]
+};
+
+let indice=0;
+
+function hablar(texto){
+let voz=new SpeechSynthesisUtterance(texto);
+speechSynthesis.speak(voz);
+}
+
+function cargarPregunta(){
+let idioma=document.getElementById("idioma").value;
+let pregunta=juegos[idioma][indice];
+
+if(!pregunta){
+nivel++;
+localStorage.setItem("nivel",nivel);
+document.getElementById("nivel").innerText=nivel;
+indice=0;
+
+if(nivel>=3){
+document.getElementById("certificado").style.display="block";
+document.getElementById("certNombre").innerText=nombre;
+}
+actualizarRanking();
+return;
+}
+
+document.getElementById("pregunta").innerHTML=pregunta.p;
+hablar(pregunta.p);
+
+btn0.innerHTML=pregunta.o[0];
+btn1.innerHTML=pregunta.o[1];
+btn2.innerHTML=pregunta.o[2];
+btn3.innerHTML=pregunta.o[3];
+}
+
+function responder(op){
+let idioma=document.getElementById("idioma").value;
+if(op===juegos[idioma][indice].r){
+puntos+=10;
+mensaje.innerHTML="✅ Correcto";
+}else{
+mensaje.innerHTML="❌ Incorrecto";
+}
+
+localStorage.setItem("puntos",puntos);
+document.getElementById("puntos").innerText=puntos;
+indice++;
+setTimeout(cargarPregunta,800);
+}
+
+function reiniciarJuego(){indice=0;cargarPregunta();}
+
+function actualizarRanking(){
+let ranking=JSON.parse(localStorage.getItem("ranking")||"[]");
+ranking.push({nombre:nombre,puntos:puntos});
+ranking.sort((a,b)=>b.puntos-a.puntos);
+ranking=ranking.slice(0,5);
+localStorage.setItem("ranking",JSON.stringify(ranking));
+
+let lista="";
+ranking.forEach(r=>{lista+=`<li>${r.nombre} - ${r.puntos} pts</li>`});
+document.getElementById("ranking").innerHTML=lista;
+}
+
+cargarPregunta();
+actualizarRanking();
+</script>
+
+<!-- ✅ CHATBASE -->
 <script>
 (function(){
 if(!window.chatbase||window.chatbase("getState")!=="initialized"){
-window.chatbase=(...arguments)=>{
-if(!window.chatbase.q){window.chatbase.q=[]}
-window.chatbase.q.push(arguments)};
-window.chatbase=new Proxy(window.chatbase,{
-get(target,prop){
-if(prop==="q"){return target.q}
-return(...args)=>target(prop,...args)}
-})}
+window.chatbase=(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(args)};
+window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q")return target.q;return(...args)=>target(prop,...args)}});
+}
 const onLoad=function(){
-const script=document.createElement("script");
-script.src="https://www.chatbase.co/embed.min.js";
-script.id="fxrgAJ48ExA_xk5xf9j_0";
-script.domain="www.chatbase.co";
-document.body.appendChild(script)};
-if(document.readyState==="complete"){onLoad()}
-else{window.addEventListener("load",onLoad)}
+const s=document.createElement("script");
+s.src="https://www.chatbase.co/embed.min.js";
+s.id="fxrgAJ48ExA_xk5xf9j_0";
+document.body.appendChild(s);
+};
+if(document.readyState==="complete")onLoad();
+else window.addEventListener("load",onLoad);
 })();
 </script>
 
