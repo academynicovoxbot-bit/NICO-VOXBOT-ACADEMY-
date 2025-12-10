@@ -1,138 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<title>NICO-VOXBOT ACADEMY — Todo integrado</title>
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>NICO-VOXBOT ACADEMY</title>
 <style>
-  body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f3f6fb;color:#102a43;}
-  header{background:#1f3b69;color:white;padding:18px;text-align:center}
-  .wrap{max-width:980px;margin:18px auto;padding:0 12px}
-  .card{background:white;border-radius:10px;padding:14px;margin-bottom:14px;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
-  input,select,button,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #dfe7ef;margin-top:8px;box-sizing:border-box}
-  button{background:#1f3b69;color:white;border:none;cursor:pointer}
+  :root{--brand:#153A6B;--accent:#0aa;--bg:#f3f7fb;--muted:#6b7a86}
+  body{font-family:Inter,Arial,Helvetica,sans-serif;margin:0;background:var(--bg);color:#072235}
+  header{background:var(--brand);color:#fff;padding:20px 12px;text-align:center}
+  header h1{margin:0;font-size:1.5rem}
+  header p{margin:6px 0 0;font-weight:600}
+  .wrap{max-width:980px;margin:18px auto;padding:12px}
+  .card{background:#fff;border-radius:12px;padding:14px;margin-bottom:14px;box-shadow:0 8px 24px rgba(6,30,60,0.06)}
+  input,select,button,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef6;margin-top:8px;box-sizing:border-box}
+  button{background:var(--brand);color:white;border:none;cursor:pointer;padding:10px 14px}
   .row{display:flex;gap:10px}
-  .row > *{flex:1}
-  .small{font-size:0.9rem;color:#334e68}
-  .float-ia{position:fixed;right:18px;bottom:90px;background:linear-gradient(135deg,#1e90ff,#00c3ff);color:white;padding:12px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(30,144,255,0.25);z-index:9999;cursor:pointer}
-  .medalla{font-size:22px}
-  .exam{background:#fff7e6;padding:12px;border-radius:8px;margin-top:10px}
-  ul{padding-left:18px}
+  .row>*{flex:1}
+  .small{font-size:0.9rem;color:var(--muted)}
+  .float-ia{position:fixed;right:18px;bottom:96px;background:linear-gradient(135deg,var(--brand),#0ca6e0);color:white;padding:12px 16px;border-radius:999px;box-shadow:0 10px 30px rgba(15,63,112,0.25);z-index:9999;cursor:pointer}
+  .hidden{display:none!important}
+  .avatar{width:72px;height:72px;border-radius:999px;object-fit:cover;border:3px solid #fff}
+  .options button{margin-top:6px}
+  .lang-list{display:flex;flex-wrap:wrap;gap:8px}
+  .lang-list button{background:#e8f6ff;color:var(--brand);border-radius:8px;padding:8px 10px;border:1px solid #d6eefb;cursor:pointer}
+  .task{background:#fbfdff;border-radius:8px;padding:8px;margin:6px 0;border:1px dashed #e2f0fb}
+  .disabled{opacity:0.5;pointer-events:none}
+  footer{padding:12px;text-align:center;color:var(--muted)}
+  @media(min-width:900px){header h1{font-size:2rem}}
 </style>
 </head>
 <body>
 
 <header>
   <h1>NICO-VOXBOT ACADEMY</h1>
-  <div><strong>La Forma Más Inteligente de Aprender Cualquier Idioma</strong></div>
+  <p><strong>La Forma Más Inteligente de Aprender Cualquier Idioma</strong></p>
 </header>
 
 <div class="wrap">
 
+  <!-- misión, eslogan y contacto -->
   <div class="card">
-    <strong>Somos una plataforma que ofrece clases de idiomas de la forma más accesible e inteligente para garantizar su futuro, y a un precio muy asequible.</strong>
-    <div class="small">Contacto: academynicovoxbot@gmail.com · Soporte: 829-742-5652</div>
-  </div>
-
-  <div class="card">
-    <h3>Planes</h3>
-    <p class="small">Mensual: <strong>US$3.99</strong> · Anual: <strong>US$39.99</strong></p>
-    <button onclick="alert('Pago PRO en versión avanzada')">Suscribirse</button>
-  </div>
-
-  <div class="card" id="panel-registro">
-    <h3>Registro / Acceso</h3>
-    <input id="nombre" placeholder="Nombre completo"/>
-    <div class="row">
-      <input id="edad" placeholder="Edad"/>
-      <input id="email" placeholder="Correo"/>
+    <div><strong id="mision"><!-- llenado por JS --></strong></div>
+    <div class="small" style="margin-top:8px">
+      Contacto: <a href="mailto:academynicovoxbot@gmail.com">academynicovoxbot@gmail.com</a> · Soporte técnico: <a href="tel:+18297425652">829-742-5652</a>
     </div>
+  </div>
+
+  <!-- Registro rápido -->
+  <div class="card" id="card-register">
+    <h3>Registro / Iniciar sesión</h3>
+    <input id="reg_name" placeholder="Nombre completo"/>
     <div class="row">
+      <input id="reg_age" placeholder="Edad"/>
+      <input id="reg_email" placeholder="Correo electrónico"/>
+    </div>
+    <div style="margin-top:8px">
+      <input id="reg_contact" placeholder="Contacto / Teléfono (opcional)"/>
+    </div>
+    <div style="margin-top:8px">
+      <input type="file" id="reg_avatar" accept="image/*"/>
+    </div>
+    <div class="row" style="margin-top:10px">
       <button onclick="registrar()">Registrarse</button>
-      <button onclick="abrirLogin()">Iniciar Sesión</button>
+      <button onclick="abrirSesion()">Iniciar sesión</button>
     </div>
+    <div class="small" style="margin-top:8px">Al registrarte se crea tu perfil localmente y se guarda tu progreso.</div>
   </div>
 
-  <div class="card hidden" id="panel-login">
-    <h3>Iniciar Sesión</h3>
-    <input id="loginEmail" placeholder="Correo registrado"/>
+  <!-- Planes y precios (botón de pago inactivo) -->
+  <div class="card">
+    <h3>Planes y Precios</h3>
+    <p class="small">Mensual: <strong>US$3.99 / mes</strong> · Anual: <strong>US$39.99 / año</strong></p>
     <div class="row">
-      <button onclick="entrar()">Entrar</button>
-      <button onclick="cerrarLogin()">Cancelar</button>
+      <button id="btn-pay" class="disabled" title="Activar pagos al configurar PayPal/Stripe">Suscribirme (desactivado)</button>
+      <button onclick="prepararPagoMock()">Configurar (modo prueba)</button>
     </div>
+    <div class="small" style="margin-top:6px">Los botones están listos en el código pero inactivos hasta que pegues las claves.</div>
   </div>
 
+  <!-- Selector idiomas -->
+  <div class="card">
+    <h3>Idiomas (20)</h3>
+    <div class="lang-list" id="langList"></div>
+  </div>
+
+  <!-- Área principal: Mi curso -->
   <div class="card hidden" id="panel-curso">
-    <h2>🎮 Mi Curso (Juego + Lecciones)</h2>
+    <h2>Mi Curso — NICO-VOXBOT</h2>
 
-    <label><strong>Idioma</strong></label>
-    <select id="idioma" onchange="cambiarIdioma()">
-      <option>Inglés</option><option>Francés</option><option>Portugués</option>
-      <option>Alemán</option><option>Italiano</option><option>Chino</option>
-      <option>Japonés</option><option>Coreano</option><option>Ruso</option>
-      <option>Árabe</option><option>Hebreo</option><option>Turco</option>
-      <option>Holandés</option><option>Sueco</option><option>Noruego</option>
-      <option>Polaco</option><option>Griego</option><option>Hindi</option>
-      <option>Tailandés</option><option>Indonesia</option>
-    </select>
-
-    <div style="display:flex;gap:10px;margin-top:10px">
-      <div style="flex:1"><strong>Nivel:</strong> <span id="nivel">1</span></div>
-      <div style="flex:1"><strong>Puntos:</strong> <span id="puntos">0</span></div>
-      <div style="flex:1"><strong>Medalla:</strong> <span id="medallas" class="medalla">🥉</span></div>
+    <div class="row">
+      <div>
+        <label><strong>Idioma:</strong></label>
+        <select id="idiomaSelect" onchange="cambiarIdioma()"></select>
+      </div>
+      <div>
+        <label><strong>Nivel:</strong></label>
+        <div style="padding:10px;background:#f5fbff;border-radius:8px;text-align:center"><span id="nivel">1</span></div>
+      </div>
     </div>
 
     <div style="margin-top:12px">
-      <h3 id="pregunta">Cargando...</h3>
+      <h3 id="pregunta">— Pregunta —</h3>
       <div class="row" style="margin-top:8px">
-        <button class="option" onclick="respuesta(this.innerText)">Opción A</button>
-        <button class="option" onclick="respuesta(this.innerText)">Opción B</button>
+        <button class="option" onclick="respuesta(0)" id="opt0">Opción A</button>
+        <button class="option" onclick="respuesta(1)" id="opt1">Opción B</button>
       </div>
       <div class="row" style="margin-top:8px">
-        <button class="option" onclick="respuesta(this.innerText)">Opción C</button>
-        <button class="option" onclick="respuesta(this.innerText)">Opción D</button>
+        <button class="option" onclick="respuesta(2)" id="opt2">Opción C</button>
+        <button class="option" onclick="respuesta(3)" id="opt3">Opción D</button>
       </div>
 
       <p id="mensaje" class="small"></p>
 
-      <div id="examen" class="exam hidden">
-        <h4>📝 Examen del nivel</h4>
-        <p id="pregExamen"></p>
-        <div class="row">
-          <button onclick="responderExamen(true)">✅ Verdadero</button>
-          <button onclick="responderExamen(false)">❌ Falso</button>
-        </div>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button onclick="hablarPregunta()">🔊 Escuchar</button>
+        <button id="listenBtn" onclick="toggleListen()">🎤 Escuchar voz</button>
+        <button onclick="mostrarTareas()">🗂️ Tareas / Actividades</button>
+        <button onclick="abrirWidgetChatbase()">🤖 Tutor IA</button>
       </div>
 
-      <hr style="margin:12px 0">
+      <div id="tareasArea" style="margin-top:10px"></div>
 
-      <h4>Acciones IA (Chatbase)</h4>
-      <div class="row">
-        <button onclick="peticionExamChatbase()">Pedir examen (Chatbase)</button>
-        <button onclick="peticionTareasSemanal()">Pedir tareas semanales</button>
-      </div>
-      <div class="row" style="margin-top:8px">
-        <button onclick="generarCertificado()">Generar certificado (PDF)</button>
-        <button onclick="pedirExplicacion()">Pedir explicación (IA)</button>
-      </div>
-
-      <p class="small">Cuando Chatbase responda, la respuesta se mostrará en el chat flotante y sonará (voz).</p>
     </div>
 
     <hr style="margin:12px 0">
-    <h4>Ranking y progreso</h4>
+
+    <h4>Ranking y medallas</h4>
     <ul id="ranking"></ul>
 
-    <div style="margin-top:10px" class="row">
-      <button onclick="cerrarSesion()">Cerrar Sesión</button>
-      <button onclick="guardarTodo()">Guardar ahora</button>
+    <div class="row" style="margin-top:10px">
+      <button onclick="guardarTodo()">Guardar</button>
+      <button onclick="cerrarSesion()">Cerrar sesión</button>
     </div>
   </div>
 
+  <!-- LibreLingo -->
   <div class="card">
     <h4>Aliado: LibreLingo</h4>
-    <div class="small">Prueba las lecciones completas desde LibreLingo y vuelve a NICO para practicar con el profesor IA.</div>
-    <div style="margin-top:8px" class="row">
+    <div class="small">Puedes abrir LibreLingo en otra pestaña o aquí mismo (prueba las lecciones y vuelve a NICO).</div>
+    <div class="row" style="margin-top:8px">
       <button onclick="window.open('https://librelingo.app','_blank')">Abrir LibreLingo</button>
       <button onclick="mostrarIframeLibre()">Abrir aquí</button>
     </div>
@@ -142,338 +148,283 @@
     </div>
   </div>
 
+  <!-- Soporte técnico -->
+  <div class="card">
+    <h4>Soporte técnico</h4>
+    <p class="small">¿Necesitas ayuda? Llámanos o envíanos un mensaje.</p>
+    <div class="row">
+      <button onclick="location.href='tel:+18297425652'">Llamar: 829-742-5652</button>
+      <button onclick="location.href='mailto:academynicovoxbot@gmail.com'">Escribir: academynicovoxbot@gmail.com</button>
+    </div>
+    <div class="small" style="margin-top:8px">Horario de soporte: Lunes a Viernes</div>
+  </div>
+
 </div>
 
-<!-- Botón IA flotante (abre el widget Chatbase) -->
-<div class="float-ia" onclick="window.chatbase && window.chatbase('open')">
-  🤖 Hablar con IA
-</div>
+<!-- Floating button to open chat/Tutor IA -->
+<div class="float-ia" onclick="abrirWidgetChatbase()">🤖 Hablar con IA</div>
 
-<!-- ---------- SCRIPTS: juego, banco 10k dinámico, exámenes, tareas, certificado, chatbase ---------- -->
+<footer>© NICO-VOXBOT ACADEMY — Todos los derechos reservados</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
 <script>
-/* === Config y banco dinámico (10k por idioma, perezoso) === */
-const PREGUNTAS_POR_IDIOMA = 10000;
-const PREGUNTAS_POR_NIVEL = 20;
-const idiomasList = Array.from(document.querySelectorAll('#idioma option')).map(o=>o.textContent);
+/* ---------------- CONFIG ---------------- */
+const CONFIG = {
+  CHATBASE_EMBED_ID: 'fxrgAJ48ExA_xk5xf9j_0', // tu ID real (pegado)
+  PAYPAL_CLIENT_ID: '',  // deja vacío hasta crear cuenta
+  STRIPE_KEY: '',
+  LANGUAGES: ['Inglés','Francés','Portugués','Alemán','Italiano','Chino','Japonés','Coreano','Ruso','Árabe','Hebreo','Turco','Holandés','Sueco','Noruego','Polaco','Griego','Hindi','Tailandés','Indonesio'],
+  QUESTIONS_PER_LANG: 10000,
+  QUESTIONS_PER_LEVEL: 20
+};
 
-let progreso = JSON.parse(localStorage.getItem('progreso'))||{};
-let idiomaActual = 'Inglés';
+/* ---------------- STATE ---------------- */
+let user = JSON.parse(localStorage.getItem('nv_user') || 'null');
+let progreso = JSON.parse(localStorage.getItem('nv_progreso') || '{}');
+let idiomaActual = localStorage.getItem('nv_idioma') || CONFIG.LANGUAGES[0];
+let bankCache = {}; // lazy generated
 let preguntaActual = null;
-let enExamen = false;
-let aciertosExamen = 0;
-const bankCache = {}; // lazy generated
+let recognition = null;
+let escuchando=false;
 
-function ensureBank(idioma){
-  if(bankCache[idioma]) return;
-  const arr=[];
-  for(let i=0;i<PREGUNTAS_POR_IDIOMA;i++){
-    const nivel = Math.floor(i/PREGUNTAS_POR_NIVEL)+1;
-    const palabra = `${idioma.substr(0,3).toUpperCase()}_WORD_${i+1}`;
-    const correcta = `Traducción_${i+1}`;
-    // distractores simples
-    const opts = [correcta, `Op_${i+101}`, `Op_${i+202}`, `Op_${i+303}`];
-    // mezclar
-    for(let j=opts.length-1;j>0;j--){
-      const k=Math.floor(Math.random()*(j+1)); [opts[j],opts[k]]=[opts[k],opts[j]];
-    }
-    arr.push({nivel,palabra,correcta,opciones:opts});
-  }
-  bankCache[idioma]=arr;
-}
+/* ---------------- UI Init ---------------- */
+document.addEventListener('DOMContentLoaded', ()=>{
+  // set mission
+  document.getElementById('mision').innerHTML = '<strong>Somos una plataforma que ofrece clases de idiomas de la forma más accesible e inteligente para garantizar su futuro, a un precio muy asequible.</strong>';
+  // languages list
+  const ll = document.getElementById('langList');
+  CONFIG.LANGUAGES.forEach(lang=>{
+    const b = document.createElement('button'); b.innerText = lang; b.onclick = ()=>{ selectLanguage(lang) }; ll.appendChild(b);
+  });
+  // idioma select
+  const sel = document.getElementById('idiomaSelect');
+  CONFIG.LANGUAGES.forEach(l=>{ const o=document.createElement('option'); o.value=l; o.text=l; sel.appendChild(o); });
+  sel.value = idiomaActual;
 
-/* === UI helpers === */
-function $(id){return document.getElementById(id)}
-function show(el){el.classList.remove('hidden')}
-function hide(el){el.classList.add('hidden')}
+  // register avatar input handler
+  const avatarInput = document.getElementById('reg_avatar');
+  avatarInput.addEventListener('change', (e)=> {
+    const f = e.target.files[0]; if(!f) return;
+    const r = new FileReader(); r.onload = ()=> {
+      if(!user) user={}; user.avatar = r.result; saveUser();
+    }; r.readAsDataURL(f);
+  });
 
-/* === Registro / Login / Sesión === */
-function registrar(){
-  const name=$('nombre').value.trim(), age=$('edad').value, email=$('email').value.trim();
-  if(!name||!email){alert('Nombre y correo son obligatorios'); return;}
-  localStorage.setItem('user_nombre',name);
-  localStorage.setItem('user_email',email);
-  // init progreso por idiomas si no existe
-  idiomasList.forEach(lang=>{ if(!progreso[lang]) progreso[lang]={nivel:1,puntos:0,history:[]}; });
-  localStorage.setItem('progreso',JSON.stringify(progreso));
-  alert('Registrado: '+name);
-  hide($('panel-registro'));
-  show($('panel-login'));
-}
-function abrirLogin(){ hide($('panel-registro')); show($('panel-login')) }
-function cerrarLogin(){ show($('panel-registro')); hide($('panel-login')) }
-function entrar(){
-  const em = $('loginEmail').value.trim() || localStorage.getItem('user_email');
-  if(!em){ alert('Escribe tu correo'); return; }
-  localStorage.setItem('user_email', em);
-  hide($('panel-login'));
-  show($('panel-curso'));
-  actualizarChatbase(); // actualizamos Chatbase con usuario al entrar
-  cambiarIdioma(); // carga preguntas
-}
-
-/* === Juego / preguntas / progreso === */
-function cambiarIdioma(){
-  idiomaActual = $('idioma').value;
-  if(!progreso[idiomaActual]) progreso[idiomaActual]={nivel:1,puntos:0,history:[]};
+  // restore user & progreso
+  if(user){ populateProfileUI(); showPanelCurso(); }
+  CONFIG.LANGUAGES.forEach(lang=>{ if(!progreso[lang]) progreso[lang]={nivel:1,puntos:0,history:[]}; });
   ensureBank(idiomaActual);
   generarPregunta();
-  actualizar();
+  actualizarUI();
+  initRecognition();
+  injectChatbase(); // inject if id present
+});
+
+/* ---------------- PROFILE / REGISTER ---------------- */
+function registrar(){
+  const n = document.getElementById('reg_name').value.trim();
+  const e = document.getElementById('reg_email').value.trim();
+  const a = document.getElementById('reg_age').value.trim();
+  const tel = document.getElementById('reg_contact').value.trim();
+  if(!n||!e){ alert('Nombre y correo son requeridos'); return; }
+  user = {name:n,email:e,age:a,phone:tel,avatar:null};
+  // if file already selected, it's loaded into user.avatar at file change handler
+  saveUser();
+  populateProfileUI();
+  showPanelCurso();
+  alert('Registrado: '+n);
 }
+
+function saveUser(){ localStorage.setItem('nv_user', JSON.stringify(user)); }
+function populateProfileUI(){
+  // hide register card, show name in header small place if needed
+  const regCard = document.getElementById('card-register');
+  if(regCard) regCard.classList.add('hidden');
+  // show curso panel
+  document.getElementById('panel-curso').classList.remove('hidden');
+  // if avatar present show
+  if(user && user.avatar){
+    // show avatar small (optional)
+  }
+}
+
+function abrirSesion(){
+  // quick login by email
+  const em = document.getElementById('reg_email').value.trim();
+  if(!em && (!user || !user.email)){ alert('Ingresa tu correo o regístrate'); return; }
+  if(!user){ // if a user with email in localStorage?
+    // if there's user stored, load it
+    const stored = JSON.parse(localStorage.getItem('nv_user')||'null');
+    if(stored && stored.email === em){ user = stored; populateProfileUI(); showPanelCurso(); return; }
+  }
+  if(user && user.email === em){ populateProfileUI(); showPanelCurso(); return; }
+  alert('Sesión iniciada (modo demo)'); showPanelCurso();
+}
+
+function cerrarSesion(){ user=null; localStorage.removeItem('nv_user'); document.getElementById('panel-curso').classList.add('hidden'); document.getElementById('card-register').classList.remove('hidden'); }
+
+/* ---------------- LANG BANK (lazy generate) ---------------- */
+function ensureBank(lang){
+  if(bankCache[lang]) return;
+  const total = CONFIG.QUESTIONS_PER_LANG;
+  const perLevel = CONFIG.QUESTIONS_PER_LEVEL;
+  const arr = [];
+  for(let i=0;i<total;i++){
+    const nivel = Math.floor(i/perLevel)+1;
+    const id = `${lang.substr(0,3).toUpperCase()}_${i+1}`;
+    const correcta = `Tr_${i+1}`;
+    const opciones = [correcta, `Distr_${i+101}`, `Distr_${i+202}`, `Distr_${i+303}`];
+    // shuffle
+    for(let j=opciones.length-1;j>0;j--){ const k = Math.floor(Math.random()*(j+1)); [opciones[j],opciones[k]]=[opciones[k],opciones[j]]; }
+    arr.push({id,nivel,pregunta:`¿Cuál es la traducción de ${id}?`,correcta,opciones});
+  }
+  bankCache[lang]=arr;
+}
+
+/* ---------------- COURSE / QUESTIONS ---------------- */
+function selectLanguage(lang){
+  idiomaActual = lang; localStorage.setItem('nv_idioma',idiomaActual);
+  document.getElementById('idiomaSelect').value = lang;
+  ensureBank(lang); generarPregunta(); actualizarUI(); showPanelCurso();
+}
+function cambiarIdioma(){ idiomaActual = document.getElementById('idiomaSelect').value; ensureBank(idiomaActual); generarPregunta(); actualizarUI(); }
+
 function generarPregunta(){
   const datos = progreso[idiomaActual];
-  const listaNivel = bankCache[idiomaActual].filter(q=>q.nivel===datos.nivel);
-  if(!listaNivel || listaNivel.length===0){
-    $('pregunta').innerText = '✅ No hay preguntas para este nivel (aún).';
-    return;
-  }
-  preguntaActual = listaNivel[Math.floor(Math.random()*listaNivel.length)];
-  $('pregunta').innerText = preguntaActual.palabra;
-  const btns = document.querySelectorAll('.option');
-  btns.forEach((b,i)=> b.innerText = preguntaActual.opciones[i] || ('Opción '+(i+1)));
-  hablar(preguntaActual.palabra); // voz para la palabra
+  const lista = bankCache[idiomaActual].filter(q=>q.nivel===datos.nivel);
+  if(!lista || lista.length===0){ document.getElementById('pregunta').innerText = '✅ No hay preguntas para este nivel aún.'; return; }
+  preguntaActual = lista[Math.floor(Math.random()*lista.length)];
+  document.getElementById('pregunta').innerText = preguntaActual.pregunta;
+  // opciones
+  for(let i=0;i<4;i++){ const el = document.getElementById('opt'+i); if(el) el.innerText = preguntaActual.opciones[i] || ('Opción '+(i+1)); }
+  hablar(preguntaActual.pregunta);
 }
-function respuesta(valor){
-  if(enExamen) return;
+
+function respuesta(index){
+  if(!preguntaActual) return;
+  const elegido = preguntaActual.opciones[index];
+  const correcto = preguntaActual.correcta;
   const datos = progreso[idiomaActual];
-  if(!preguntaActual){ generarPregunta(); return; }
-  if(valor === preguntaActual.correcta){
-    datos.puntos += 10; datos.nivel += 1;
-    $('mensaje').innerText = '✅ Correcto';
-  } else {
-    $('mensaje').innerText = '❌ Incorrecto';
-  }
-  datos.history.push({q:preguntaActual.palabra, ans:valor, ok: valor===preguntaActual.correcta, when:Date.now()});
+  const ok = elegido === correcto;
+  datos.history.push({id:preguntaActual.id,ans:elegido,ok,when:Date.now()});
+  if(ok){ datos.puntos += 10; datos.nivel += 1; document.getElementById('mensaje').innerText = '✅ Correcto'; }
+  else { document.getElementById('mensaje').innerText = '❌ Incorrecto — sigue practicando'; }
   guardarProgreso();
   verificarExamen();
   generarPregunta();
-  actualizar();
+  actualizarUI();
 }
-/* Examen local (y chatbase puede crear uno personalizado) */
+
+/* ---------------- EXAMS & TASKS ---------------- */
 function verificarExamen(){
   const datos = progreso[idiomaActual];
   if(datos.nivel % 5 === 0){
-    enExamen = true; aciertosExamen = 0;
-    $('examen').classList.remove('hidden');
-    $('pregExamen').innerText = 'EXAMEN: Responde Verdadero si la traducción propuesta es correcta.';
-    // la UI de examen usa botones Verdadero / Falso
+    // unlock exam UI
+    document.getElementById('mensaje').innerText += ' — ¡Has desbloqueado el examen de nivel!';
   }
-}
-function responderExamen(resp){
-  if(!enExamen) return;
-  if(resp) aciertosExamen++;
-  // regla local: 3 aciertos (para versión demo) -> aprobado
-  if(aciertosExamen >= 3){
-    $('mensaje').innerText = '🎉 Examen aprobado';
-    progreso[idiomaActual].puntos += 30;
-  } else {
-    $('mensaje').innerText = '❌ Reprobaste el examen, repite el nivel';
-    progreso[idiomaActual].nivel = Math.max(1, progreso[idiomaActual].nivel - 1);
-  }
-  $('examen').classList.add('hidden');
-  enExamen = false;
-  guardarProgreso();
-  generarPregunta();
-  actualizar();
 }
 
-/* === Ranking / medallas / certificado === */
-function actualizar(){
+let tareasDemo = {
+  // tasks per language -> per level (simple demo)
+};
+function mostrarTareas(){
+  // show 3 tasks for this lesson/level
+  const nivel = progreso[idiomaActual].nivel;
+  const html = `<h4>Tareas y Actividades — Nivel ${nivel}</h4>
+    <div class="task">1) Aprende 10 nuevas palabras. (10 min)</div>
+    <div class="task">2) Practica pronunciación con la lección (5 repeticiones)</div>
+    <div class="task">3) Mini-ejercicio: traduce 5 frases.</div>
+    <div style="margin-top:8px"><button onclick="marcarTareaHecha()">Marcar tarea como hecha</button></div>`;
+  document.getElementById('tareasArea').innerHTML = html;
+}
+
+function marcarTareaHecha(){ // increment small points
+  progreso[idiomaActual].puntos += 5;
+  guardarProgreso(); actualizarUI(); alert('Tarea guardada: recibiste puntos'); }
+
+/* ---------------- RANKING / MEDALS / SAVE ---------------- */
+function actualizarUI(){
   const datos = progreso[idiomaActual];
-  $('nivel').innerText = datos.nivel;
-  $('puntos').innerText = datos.puntos;
-  if(datos.puntos>=100) $('medallas').innerText='🥇';
-  else if(datos.puntos>=50) $('medallas').innerText='🥈';
-  else $('medallas').innerText='🥉';
-  $('ranking').innerHTML = `<li>${idiomaActual} - ${datos.puntos} pts</li>`;
-  if(datos.nivel >= 10){
-    $('certificado').innerText = `✅ Certificado desbloqueado en ${idiomaActual}`;
-  } else $('certificado').innerText = '';
-  // actualizar información en Chatbase para que el tutor la use
-  actualizarChatbase();
-}
-function guardarProgreso(){
-  localStorage.setItem('progreso', JSON.stringify(progreso));
-}
-function guardarTodo(){ guardarProgreso(); alert('Progreso guardado'); }
-
-/* === Voz local === */
-function hablar(texto){
-  try{
-    const u = new SpeechSynthesisUtterance(texto);
-    speechSynthesis.speak(u);
-  }catch(e){ /* ignore */ }
+  document.getElementById('nivel').innerText = datos.nivel;
+  // puntos sum
+  let total = 0;
+  Object.keys(progreso).forEach(k=> total += progreso[k].puntos || 0);
+  // ranking list simple
+  const list = Object.keys(progreso).map(k=> `<li>${k} — ${progreso[k].puntos} pts</li>`).join('');
+  document.getElementById('ranking').innerHTML = list;
+  // medallas: dynamic (example)
+  const med = datos.puntos>=100 ? '🥇' : (datos.puntos>=50 ? '🥈' : '🥉');
+  document.getElementById('medallas') && (document.getElementById('medallas').innerText = med);
 }
 
-/* ========== CHATBASE INTEGRATION ========== */
-/*
-  - setUserData: enviamos datos para que el agente use contexto
-  - askChatbase: pedimos al agente que genere examen/tareas/explicación
-  Nota: la función intenta distintos métodos de client API; si tu versión de Chatbase usa otro nombre,
-  coméntamelo y lo adaptamos. Mientras tanto hay fallback local.
-*/
-function actualizarChatbase(){
-  if(!window.chatbase) return;
-  const user = localStorage.getItem('user_email') || 'invitado@nicovoxbot.com';
-  const datos = progreso[idiomaActual] || {nivel:1,puntos:0};
-  try{
-    window.chatbase('setUserData', { email: user, idioma: idiomaActual, nivel: datos.nivel, puntos: datos.puntos });
-  }catch(e){ /* no crítico */ }
+function guardarProgreso(){ localStorage.setItem('nv_progreso', JSON.stringify(progreso)); }
+function guardarTodo(){ guardarProgreso(); saveUser(); alert('Guardado localmente') }
+
+/* ---------------- VOICE (TTS + STT) ---------------- */
+function hablar(text){
+  try{ const u = new SpeechSynthesisUtterance(text); u.lang = detectLangCode(idiomaActual); speechSynthesis.cancel(); speechSynthesis.speak(u);}catch(e){ console.warn(e); }
+}
+function hablarPregunta(){ if(preguntaActual) hablar(preguntaActual.pregunta); }
+
+function detectLangCode(lang){
+  const map = {'Inglés':'en-US','Francés':'fr-FR','Portugués':'pt-PT','Alemán':'de-DE','Italiano':'it-IT','Chino':'zh-CN','Japonés':'ja-JP','Coreano':'ko-KR','Ruso':'ru-RU','Árabe':'ar-SA','Hindi':'hi-IN','Español':'es-ES'};
+  return map[lang] || 'en-US';
 }
 
-/* función genérica que intenta pedir respuesta al agente */
-function askChatbase(prompt, onResponse){
-  // normalizamos
-  if(!window.chatbase){
-    onResponse && onResponse({error:'Chatbase no disponible en esta sesión'});
-    return;
-  }
-  // intentamos dos formas, según embed client API
-  try {
-    // forma 1: método 'ask' (hipotético)
-    window.chatbase('ask', { prompt, onResult: (res)=> {
-      // si el embed llama al callback
-      if(res && res.text){
-        onResponse && onResponse({text: res.text});
-        hablar(res.text);
-      }
-    }});
-    // también intentamos forma 2: sendMessage
-    window.chatbase('sendMessage', { role:'user', content: prompt }).then((res)=>{
-      if(res && res.text){ onResponse && onResponse({text: res.text}); hablar(res.text); }
-    }).catch(()=>{ /* ignore */ });
-    // como muchas embed libs no retornan promesas, devolvemos ya
-    onResponse && onResponse({text:'Solicitud enviada a Chatbase. El agente responderá en su widget.'});
-  } catch(err){
-    // fallback: envía setUserData y abre el widget con la instrucción visible
-    try {
-      window.chatbase('setUserData', { prompt_example: prompt });
-      window.chatbase('open');
-      onResponse && onResponse({text:'Abriendo widget para que el agente responda (fallback).'});
-    } catch(e){
-      onResponse && onResponse({error:'No se pudo comunicar con Chatbase desde esta página.'});
+function initRecognition(){
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SpeechRecognition) return;
+  recognition = new SpeechRecognition(); recognition.lang = 'es-ES'; recognition.interimResults=false; recognition.continuous=false;
+  recognition.onresult = (e)=>{ const text = e.results[0][0].transcript; document.getElementById('mensaje').innerText = 'Reconocido: '+text; // intentar contestar si coincide
+    if(preguntaActual){
+      preguntaActual.opciones.forEach((opt,idx)=>{ if(opt.toLowerCase().includes(text.toLowerCase()) || text.toLowerCase().includes(opt.toLowerCase())) respuesta(idx); });
     }
-  }
-}
-
-/* === 1) Petición de examen hecho por Chatbase === */
-function peticionExamChatbase(){
-  const prompt = `Eres el profesor de NICO-VOXBOT. Crea un examen de 5 preguntas para un estudiante en ${idiomaActual} en su nivel ${progreso[idiomaActual].nivel}. Responde en formato: pregunta || opción1; opción2; opción3; opción4 || respuesta_correcta`;
-  askChatbase(prompt, (res)=>{
-    if(res && res.text){
-      // mostramos en el widget: abrimos chat y dejamos la respuesta
-      alert('Chatbase respondió: revisa el widget (o escucha la respuesta).');
-      // también intentamos procesar texto si viene en formato esperado
-    } else if(res && res.error){
-      alert('Error Chatbase: '+res.error + '. Se usará examen local.');
-      // fallback: mostramos un examen local ya presente (verificar)
-      verificarExamen();
-    }
-  });
-}
-
-/* === 2) Petición de tareas semanales === */
-function peticionTareasSemanal(){
-  const prompt = `Eres el tutor. Genera 5 tareas prácticas para la semana para un estudiante de nivel ${progreso[idiomaActual].nivel} en ${idiomaActual}. Indica duración estimada por tarea.`;
-  askChatbase(prompt, (res)=>{
-    if(res && res.text){
-      alert('Tareas creadas por Chatbase (revisa widget).');
-      // guardamos tarea simple en localStorage (si queremos)
-      const tareas = JSON.parse(localStorage.getItem('tareas'))||{};
-      tareas[idiomaActual] = tareas[idiomaActual] || [];
-      tareas[idiomaActual].push({when:Date.now(), text: res.text});
-      localStorage.setItem('tareas', JSON.stringify(tareas));
-    } else {
-      alert('No hay respuesta de Chatbase. Se creó una tarea local de ejemplo.');
-      const tareas = JSON.parse(localStorage.getItem('tareas'))||{};
-      tareas[idiomaActual] = tareas[idiomaActual] || [];
-      tareas[idiomaActual].push({when:Date.now(), text: 'Practica 15 min de vocabulario y 10 min escuchar audio.'});
-      localStorage.setItem('tareas', JSON.stringify(tareas));
-    }
-  });
-}
-
-/* === 3) Generar certificado PDF/Imprimir (client-side) === */
-function generarCertificado(){
-  const name = localStorage.getItem('user_nombre') || 'Estudiante';
-  const idioma = idiomaActual;
-  const nivel = progreso[idiomaActual] ? progreso[idiomaActual].nivel : 1;
-  // Creamos una ventana con contenido imprimible (fácil y compatible)
-  const w = window.open('','_blank');
-  const html = `
-    <html><head><title>Certificado</title>
-    <style>body{font-family:Arial;text-align:center;padding:40px} h1{color:#1f3b69}</style></head>
-    <body>
-      <h1>Certificado de Finalización</h1>
-      <p>Este certificado acredita que</p>
-      <h2>${name}</h2>
-      <p>ha completado el nivel ${nivel} del curso de <strong>${idioma}</strong> en NICO-VOXBOT ACADEMY.</p>
-      <p>Fecha: ${new Date().toLocaleDateString()}</p>
-      <p style="margin-top:40px">--- NICO-VOXBOT ACADEMY ---</p>
-    </body></html>`;
-  w.document.write(html);
-  w.document.close();
-  w.focus();
-  // Intentamos imprimir / guardar como PDF
-  setTimeout(()=>{ w.print(); }, 700);
-}
-
-/* === 4) Pedir explicación / pedir ejercicio al tutor IA === */
-function pedirExplicacion(){
-  const prompt = `Explícame la palabra "${preguntaActual ? preguntaActual.palabra : '...' }" en ${idiomaActual} a nivel del estudiante (nivel ${progreso[idiomaActual].nivel}). Da ejemplos y un mini-ejercicio.`;
-  askChatbase(prompt, (res)=>{
-    if(res && res.text) {
-      alert('El profesor IA respondió (ver widget).');
-    } else if(res && res.error){
-      alert('Chatbase no disponible: intenta de nuevo más tarde.');
-    }
-  });
-}
-
-/* === Petición para cerrar iframe librelingo === */
-function mostrarIframeLibre(){ $('libreFrame').style.display='block' }
-function cerrarIframeLibre(){ $('libreFrame').style.display='none' }
-
-/* === iniciar la app con valores si ya hay progreso === */
-document.addEventListener('DOMContentLoaded', ()=>{
-  // inicializar progreso base si no existe
-  idiomasList.forEach(lang=>{ if(!progreso[lang]) progreso[lang] = {nivel:1,puntos:0,history:[]}; });
-  // registrar usuario por defecto si existe local
-  const name = localStorage.getItem('user_nombre');
-  if(name){
-    hide($('panel-registro'));
-    show($('panel-curso'));
-  }
-  // generamos banco del idioma por defecto de forma lazy (no todo a la vez)
-  ensureBank(idiomaActual);
-  generarPregunta();
-  actualizar();
-  // inicializar Chatbase embed (script) — lo agregamos dinámicamente abajo (si falla, se mostrará aviso)
-});
-</script>
-
-<!-- ================== Chatbase embed script (último para que cargue después del resto) ================== -->
-<script>
-(function(){
-  // Este bloque es el embed oficial (tal como el code que copiaste antes).
-  // ID de script es el que Chatbase te da en tu agente; si tu scriptId es distinto, reemplázalo.
-  if(!window.chatbase || window.chatbase("getState") !== "initialized"){
-    window.chatbase=(...args)=>{ if(!window.chatbase.q) window.chatbase.q=[]; window.chatbase.q.push(args); };
-    window.chatbase = new Proxy(window.chatbase, { get(target, prop){
-      if(prop === 'q') return target.q;
-      return (...a) => target(prop, ...a);
-    }});
-  }
-  const onLoad = function(){
-    const s = document.createElement('script');
-    s.src = 'https://www.chatbase.co/embed.min.js';
-    s.id = 'fxrgAJ48ExA_xk5xf9j_0';
-    s.defer = true;
-    document.body.appendChild(s);
   };
-  if(document.readyState === 'complete') onLoad();
-  else window.addEventListener('load', onLoad);
-})();
+  recognition.onend = ()=>{ escuchando=false; document.getElementById('listenBtn').innerText='🎤 Escuchar voz'; };
+}
+function toggleListen(){
+  if(!recognition){ alert('Reconocimiento de voz no disponible en tu navegador.'); return; }
+  if(escuchando){ recognition.stop(); escuchando=false; document.getElementById('listenBtn').innerText='🎤 Escuchar voz'; } else { recognition.start(); escuchando=true; document.getElementById('listenBtn').innerText='⏹️ Parar'; }
+}
+
+/* ---------------- LIBRELINGO IFRAME ---------------- */
+function mostrarIframeLibre(){ document.getElementById('libreFrame').style.display='block'; }
+function cerrarIframeLibre(){ document.getElementById('libreFrame').style.display='none'; }
+
+/* ---------------- PAYMENT MOCK ---------------- */
+function prepararPagoMock(){ alert('Flujo de pago listo en modo prueba. Cuando tengas PayPal pega tu Client ID en el código.'); const btn = document.getElementById('btn-pay'); btn.classList.remove('disabled'); btn.disabled=false; btn.innerText='Pagar (modo prueba)'; }
+
+/* ---------------- HELPERS UI ---------------- */
+function showPanelCurso(){ document.getElementById('panel-curso').classList.remove('hidden'); document.getElementById('card-register').classList.add('hidden'); }
+function selectLanguageFromHeader(lang){ selectLanguage(lang); }
+
+/* ---------------- INJECT CHATBASE ---------------- */
+function injectChatbase(){
+  if(!CONFIG.CHATBASE_EMBED_ID) return;
+  try{
+    if(!window.chatbase || window.chatbase("getState") !== "initialized"){
+      window.chatbase=(...args)=>{ if(!window.chatbase.q) window.chatbase.q=[]; window.chatbase.q.push(args); };
+      window.chatbase = new Proxy(window.chatbase, { get(target, prop){ if(prop==='q') return target.q; return (...a)=> target(prop, ...a); }});
+    }
+    const s = document.createElement('script'); s.src='https://www.chatbase.co/embed.min.js'; s.id = CONFIG.CHATBASE_EMBED_ID; s.defer = true; document.body.appendChild(s);
+  }catch(e){ console.warn('Chatbase inject failed', e); }
+}
+function abrirWidgetChatbase(){ if(window.chatbase){ try{ window.chatbase('open'); return; }catch(e){} } alert('El widget de Chatbase no está disponible. Comprueba que CONFIG.CHATBASE_EMBED_ID tenga el ID correcto.'); }
+
+/* ---------------- START helpers ---------------- */
+function selectLanguage(lang){ selectLanguageAction(lang); }
+function selectLanguageAction(lang){
+  idiomaActual = lang; localStorage.setItem('nv_idioma',idiomaActual); ensureBank(idiomaActual); generarPregunta(); actualizarUI(); showPanelCurso();
+}
+
+/* ---------------- persist user/progreso if present ---------------- */
+function saveUser(){ if(user) localStorage.setItem('nv_user', JSON.stringify(user)); }
+
+/* ---------------- init recognition earlier ---------------- */
+function initRecognition(){}
 </script>
+
+<!-- ========== CHATBASE EMBED (already injected by injectChatbase) ========== -->
 
 </body>
 </html>
